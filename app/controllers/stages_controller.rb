@@ -1,9 +1,7 @@
 class StagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_stage, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @stages = policy_scope(Stage).order(created_at: :desc)
-  end
 
   def show
   end
@@ -28,5 +26,6 @@ class StagesController < ApplicationController
 private
   def set_stage
     @stage = Stage.find(params[:id])
+    authorize @stage
   end
 end

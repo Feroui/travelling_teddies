@@ -5,9 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :teddies do
-      resources :stage
+      resources :stages, only: [:show]
   end
-
-  resources :stages
 
 end

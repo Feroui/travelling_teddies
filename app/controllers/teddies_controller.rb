@@ -1,4 +1,5 @@
 class TeddiesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @teddies = Teddy.all
@@ -6,7 +7,8 @@ class TeddiesController < ApplicationController
 
   def show
     @teddy = Teddy.find(params[:id])
-    @stages = Stage.all
+    authorize @teddy
+    @stages = policy_scope(Stage).order(created_at: :desc)
   end
 
   def new
