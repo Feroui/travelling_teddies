@@ -16,15 +16,15 @@ class TeddiesController < ApplicationController
   end
 
   def create
-    @teddy = Teddy.new(user_params)
+    @teddy = Teddy.new(teddy_params)
     @teddy.user = @user
     @teddy.save
   end
 
   private
 
-  def user_params
-    params.require(:teddy).permit(:name, :description, :valid)
+  def teddy_params
+    params.require(:teddy).permit(:name, :description, :valid, :photo, :photo_cache)
   end
 
   def get_current_user

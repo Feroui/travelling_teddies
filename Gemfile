@@ -11,6 +11,8 @@ gem 'redis'
 gem "pundit"
 gem 'faker'
 gem "geocoder"
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 gem 'sass-rails'
 gem 'jquery-rails'
