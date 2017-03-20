@@ -1,14 +1,10 @@
 <div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
   <div class="banner-content">
     <h1>Travelling Teddies</h1>
-    <p>Very cool stuff, useful and smart</p>
+    <p>Find a Teddy now :)</p>
     <%= form_tag '/teddies', method: :get, class: "form-inline" do  %>
-      <%= text_field_tag 'address', nil, placeholder: "Region / City / Address", class: "form-control input-lg" %>
-      <div class="input-daterange" id="booking_period" style="display:inline;">
-        <%= text_field_tag 'start_at', nil, placeholder: 'Start date', class: "form-control input-lg actual_range" %>
-        <%= text_field_tag 'end_at', nil, placeholder: 'End date', class: "form-control input-lg actual_range" %>
-        <%= submit_tag "Search", class: "btn btn-lg btn-primary" %>
-        </div>
+      <%= text_field_tag 'address', nil, placeholder: "Teddy name or region", class: "form-control input-lg" %>
+      <%= submit_tag "Search", class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
 </div>
