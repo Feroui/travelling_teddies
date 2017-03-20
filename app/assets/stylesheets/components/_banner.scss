@@ -5,7 +5,7 @@
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
 }
 .banner h1 {
@@ -18,4 +18,8 @@
   font-weight: lighter;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
+}
+
+.banner form {
+  margin-bottom: 30px;
 }
