@@ -1,6 +1,6 @@
 class Teddy < ApplicationRecord
   belongs_to :user
-  has_many :stages
+  has_many :stages, dependent: :destroy
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   mount_uploader :photo, PhotoUploader
