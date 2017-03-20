@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :users, only [:show, :create, :destroy]
+
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :teddies do
+      resources :stage [:index, :show, :create]
+  end
+
+  resources :stages [:index, :show, :create]
+
 end
