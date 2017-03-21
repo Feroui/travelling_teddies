@@ -5,7 +5,11 @@ class Stage < ApplicationRecord
   validates :backpacker_name, presence: true
   validates :backpacker_description, presence: true
   validates :adress, presence: true
-  mount_uploader :photo, PhotoUploader
+
+  has_attachments :photos
+
+
   geocoded_by :adress
   after_validation :geocode, if: :adress_changed?
+
 end
