@@ -1,33 +1,43 @@
-.card {
+.container {
+  margin-top: 50px;
+}
+
+.profile-card {
+  height: 400px;
+  width: 300px;
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  border-radius: 10px;
+
+}
+
+.profile-header {
+  height: 70px;
+  background-color: #D3BE58;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.profilepic {
+  background-image: url("profilepic.jpg");
+  background-size: cover;
   height: 200px;
+}
+
+.profile-footer{
+  background-color: #F5E180;
+  height: 130px;
+}
+.card {
+  height: 400px;
+  width: 300px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   color: white;
   position: relative;
+  margin-bottom: 50px;
 }
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-.card-category {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 10px;
-  text-transform: uppercase;
-}
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 13px;
-  }
+
 .card-link {
   position: absolute;
   top: 0;
@@ -41,3 +51,4 @@
 .card-link:hover{
   opacity: 0.1;
 }
+
