@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :teddies do
-      resources :stages, only: [:show]
+      resources :stages, only: [:show, :index]
   end
   mount Attachinary::Engine => "/attachinary"
 end
