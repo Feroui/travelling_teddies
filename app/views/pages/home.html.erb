@@ -1,5 +1,8 @@
-<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0) 0%, rgba(0,36,61,0) 50%), url(<%=image_path "Map.png"%>);">
-  <div class="banner-content">
+<div id="home-map" style="width: 100%; height: calc(100vh - 70px);">
+</div>
+
+<div id="map-content-wrapper">
+  <div class="map-content text-center">
     <h1>Travelling Teddies</h1>
     <p>Find a Teddy now :)</p>
     <%= form_tag '/teddies', method: :get, class: "form-inline" do  %>
@@ -8,22 +11,164 @@
     <% end %>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    var mapStyle = [
+      {
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.land_parcel",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.locality",
+        "elementType": "labels",
+        "stylers": [
+          {
+            "visibility": "on"
+          }
+        ]
+      },
+      {
+        "featureType": "administrative.neighborhood",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi",
+        "elementType": "labels.text",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "poi.business",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "road",
+        "elementType": "labels.icon",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      },
+      {
+        "featureType": "transit",
+        "stylers": [
+          {
+            "visibility": "off"
+          }
+        ]
+      }
+    ];
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({
+        internal: { id: 'home-map' },
+        provider: {
+          zoom:      3,
+          center:    new google.maps.LatLng(53.385873, -1.471471),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          styles:    mapStyle,
+          disableDefaultUI: true,
+          scrollwheel: false,
+        }
+      },
+      function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        };
+      });
+    });
+  <% end %>
+<% end %>
+
 <br>
-<div class="container">
+<div class="container home-cards">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="home-card">
+        <%= image_tag "Bozogc.png", class: 'img-left' %>
+        <div class="home-desc">
+          <p>BOZO IS HAPPY</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="home-card">
+        <div class="home-desc">
+          <p>BIDOU IS FUN</p>
+        </div>
+        <%= image_tag "Bidouroch.png", class: 'img-right' %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="home-card">
+        <%= image_tag "Bozogc.png", class: 'img-left' %>
+        <div class="home-desc">
+          <p>BOZO IS HAPPY</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container how-it-works text-center">
+  <h1>How does it work?</h1>
   <div class="row">
     <div class="col-xs-4">
-      <%= image_tag "Bozogc.png" %>
-    </div>
-    <div class="col-xs-8">
-      <p>BOZO IS HAPPY</p>
-    </div>
-  </div><div class="row">
-    <div class="col-xs-8">
-      <p>BIDOU IS FUN</p>
+      <%= image_tag 'teddy.png'%>
+      <h3>You send Teddy to us</h3>
+      <p>Send your very own teddy bear through the mail; we’ll train him for travelling and give him hiking equipment.</p>
     </div>
     <div class="col-xs-4">
-      <%= image_tag "Bidouroch.png" %>
+      <%= image_tag 'backpack.png'%>
+      <h3>Teddy finds a travel buddy</h3>
+      <p>Teddy will meet a friendly adventuror that will take him somewhere around the world. They’ll begin their trip together and you will receive messages and updates from your furry friend.</p>
     </div>
-
+    <div class="col-xs-4">
+      <%= image_tag 'world.png'%>
+      <h3>Teddy tours the world and meets new friends</h3>
+      <p>Teddy will meet new friends who will bring him to other parts of the world, helping you discover the whole globe through the eyes of your little bear!</p>
+    </div>
   </div>
 </div>
