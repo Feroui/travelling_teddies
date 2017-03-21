@@ -24,7 +24,7 @@ class TeddiesController < ApplicationController
   private
 
   def teddy_params
-    params.require(:teddy).permit(:name, :description, :valid, :photo, :photo_cache)
+    params.require(:teddy).permit(:name, :description, :valid, photos: [])
   end
 
   def get_current_user

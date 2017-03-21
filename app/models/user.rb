@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: [:facebook]
   has_one :teddy
   validates :email, presence: true, uniqueness: true
-  mount_uploader :photo, PhotoUploader
+  has_attachments :photos
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)

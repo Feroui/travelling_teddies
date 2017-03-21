@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :teddies do
       resources :stages, only: [:show]
   end
-
+  mount Attachinary::Engine => "/attachinary"
 end

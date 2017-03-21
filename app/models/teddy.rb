@@ -3,5 +3,5 @@ class Teddy < ApplicationRecord
   has_many :stages
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
-  mount_uploader :photo, PhotoUploader
+  has_attachments :photos
 end

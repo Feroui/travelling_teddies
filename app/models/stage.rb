@@ -5,5 +5,5 @@ class Stage < ApplicationRecord
   validates :backpacker_name, presence: true
   validates :backpacker_description, presence: true
   validates :adress, presence: true
-  mount_uploader :photo, PhotoUploader
+  has_attachments :photos
 end

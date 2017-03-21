@@ -10,10 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170320163440) do
+ActiveRecord::Schema.define(version: 20170321142050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attachinary_files", force: :cascade do |t|
+    t.string   "attachinariable_type"
+    t.integer  "attachinariable_id"
+    t.string   "scope"
+    t.string   "public_id"
+    t.string   "version"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "format"
+    t.string   "resource_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
 
   create_table "stages", force: :cascade do |t|
     t.float    "lat"
@@ -26,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170320163440) do
     t.integer  "teddy_id"
     t.datetime "updated_at",             null: false
     t.string   "adress"
-    t.string   "photo"
     t.index ["teddy_id"], name: "index_stages_on_teddy_id", using: :btree
   end
 
@@ -37,7 +51,6 @@ ActiveRecord::Schema.define(version: 20170320163440) do
     t.boolean  "active"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "photo"
     t.index ["user_id"], name: "index_teddies_on_user_id", using: :btree
   end
 
@@ -54,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170320163440) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.boolean  "admin"
     t.string   "name"
     t.string   "provider"
     t.string   "uid"
@@ -62,8 +76,6 @@ ActiveRecord::Schema.define(version: 20170320163440) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.boolean  "admin"
-    t.string   "photo"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
