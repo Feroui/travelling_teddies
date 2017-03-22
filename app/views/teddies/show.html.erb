@@ -91,13 +91,13 @@
         mapTypeId: google.maps.MapTypeId.TERRAIN
       });
 
-
+      var image = '<%= image_path 'logo1.png' %>'
       <% @stages.each do |stage| %>
         var marker = new google.maps.Marker({
         position: <%= raw( { lat: stage.latitude, lng: stage.longitude }.to_json) %>,
         map: map,
-        title: 'Hello World!'
-
+        title: 'Hello World!',
+        icon: image
         });
       <% end %>
 
