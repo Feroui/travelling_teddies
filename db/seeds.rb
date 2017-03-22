@@ -7,28 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
-User.destroy_all
-Teddy.destroy_all
 Stage.destroy_all
+Teddy.destroy_all
+User.destroy_all
 
 (1..10).to_a.each do |i|
 
   name = Faker::Pokemon.name
-  mail = name + i.to_s + "@gmail.com"
+  mail = name.parameterize + i.to_s + "@gmail.com"
   us = User.new(
     name: name,
     email: mail,
     password: "123456"
   )
   us.save!
-end
 
-
-(1..10).to_a.each do |i|
   ted = Teddy.new(
     name: Faker::LordOfTheRings.character + i.to_s,
     description: Faker::Lorem.paragraph,
-    user: User.all.sample
+    user: us
   )
   ted.save!
   10.times do
