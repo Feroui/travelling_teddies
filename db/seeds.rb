@@ -28,7 +28,7 @@ end
   ted = Teddy.new(
     name: Faker::LordOfTheRings.character + i.to_s,
     description: Faker::Lorem.paragraph,
-    user: User.find(i)
+    user: User.all.sample
   )
   ted.save!
   10.times do
