@@ -4,4 +4,6 @@ class Teddy < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   has_attachments :photos
+
+
 end

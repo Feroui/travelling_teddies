@@ -1,0 +1,21 @@
+.nopadding {
+  padding:0px!important;
+}
+
+.map-container {
+  overflow: hidden;
+}
+
+.wider-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  overflow: scroll;
+}
+
+.container-without-footer {
+  position: relative;
+  margin-top: 70px;
+  height: calc(100vh - 70px);
+  width: 100vw;
+}
+
