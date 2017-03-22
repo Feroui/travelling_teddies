@@ -1,0 +1,31 @@
+.container-without-footer{
+  position: relative;
+  height: calc(100vh - 70px);
+  width: 100vw;
+  margin-top: 0px !important;
+}
+
+.container-spread {
+  margin-top: 70px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  width: 100vw;
+  min-height: calc(100vh - 154px);
+}
+
+.container-with-footer{
+  padding: 30px;
+  position: relative;
+  margin-top: 70px;
+  height: calc(100vh - 154px);
+  width: 100vw;
+  overflow: scroll;
+}
+
+.wider-container {
+  width: 100%;
+  height: calc(100vh - 70px);
+  overflow: scroll;
+  padding-top: 50px;
+}

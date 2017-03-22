@@ -9,6 +9,11 @@ class PagesController < ApplicationController
       marker.lng stage.longitude
       # marker.infowindow render_to_string(partial: "/pages/map_box", locals: { stage: stage })
     end
+
+    teddies = Teddy.all.sample(3)
+    @teddy_1 = teddies[0]
+    @teddy_2 = teddies[1]
+    @teddy_3 = teddies[2]
   end
 
   def gmaps4rails_marker_picture
