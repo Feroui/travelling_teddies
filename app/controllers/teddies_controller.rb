@@ -37,14 +37,22 @@ class TeddiesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@stages) do |stage, marker|
       marker.lat stage.latitude
       marker.lng stage.longitude
-      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+      # marker.infowindow render_to_string(partial: "/stages/map_box", locals: { stage: stage })
     end
   end
 
   def show
     @teddy = Teddy.find(params[:id])
     authorize @teddy
-    @stages = policy_scope(Stage).order(created_at: :desc)
+    # @stages = policy_scope(Stage).order(created_at: :desc)
+
+    @stages = @teddy.stages.where.not(latitude: nil, longitude: nil).order(:created_at)
+    @last_stage = @teddy.stages.where.not(latitude: nil, longitude: nil).order(:created_at).last
+
+    @hash = Gmaps4rails.build_markers(@stages) do |stage, marker|
+      marker.lat stage.latitude
+      marker.lng stage.longitude
+    end
   end
 
   def new
