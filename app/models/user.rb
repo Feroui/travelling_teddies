@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
   has_one :teddy, dependent: :destroy
+  has_many :followers
   validates :email, presence: true, uniqueness: true
   has_attachments :photos
 

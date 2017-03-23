@@ -15,7 +15,7 @@
     <% if user_signed_in? %>
 
       <!-- Profile picture and dropdown -->
-      <%= link_to t(".dashboard", default: "Dashboard"), "#", class: "navbar-teddies-item navbar-teddies-link" %>
+      <%= link_to t(".dashboard", default: "Dashboard"), dashboard_path, class: "navbar-teddies-item navbar-teddies-link" %>
       <%= link_to t(".profile", default: "Profile"), new_user_session_path, class: "navbar-teddies-item navbar-teddies-link" %>
       <%= link_to t(".sign_out", default: "Log Out"), destroy_user_session_path, method: :delete, class: "navbar-teddies-item navbar-teddies-link" %>
       <% if current_user.photos? %>
