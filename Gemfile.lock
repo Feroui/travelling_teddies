@@ -270,6 +270,7 @@ DEPENDENCIES
   rails (= 5.0.2)
   rails-assets-underscore!
   redis
+  rest-client
   sass-rails
   simple_form
   spring
