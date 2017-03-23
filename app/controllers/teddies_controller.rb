@@ -72,7 +72,6 @@ class TeddiesController < ApplicationController
   def validate_code
     @teddy = Teddy.find_by code: params[:code]
     @stage = Stage.new
-    #@stage = Stage.new(stage_params)
     authorize(@teddy || Teddy.new)
     respond_to do |format|
         format.js do
@@ -81,17 +80,6 @@ class TeddiesController < ApplicationController
           end
         end
       end
-    # if @stage.save
-    #   respond_to do |format|
-    #     format.html {redirect_to teddy_path(@teddy)}
-    #     format.js
-    #   end
-    # else
-    #   respond_to do |format|
-    #     format.html {render 'stage-form' }
-    #     format.js
-    #   end
-    # end
   end
 
   private
@@ -104,7 +92,4 @@ class TeddiesController < ApplicationController
     @user = current_user
   end
 
-  def stage_params
-    params.require(:stage).permit(:backpacker_name, :backpacker_description)
-  end
 end
