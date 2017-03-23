@@ -7,8 +7,12 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  get 'backpacker', to: 'users#backpacker'
+
   resources :teddies do
-      resources :stages, only: [:show, :index]
+      resources :stages, only: [:show, :index, :new]
   end
+
+
   mount Attachinary::Engine => "/attachinary"
 end
