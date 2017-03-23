@@ -1,5 +1,7 @@
 class TeddyPolicy < ApplicationPolicy
-
+  def backpacker?
+    true
+  end
   def validate_code?
     true
   end

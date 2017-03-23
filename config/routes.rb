@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  get 'backpacker', to: 'users#backpacker'
+  get 'backpacker', to: 'teddies#backpacker'
 
   resources :teddies do
     collection do

@@ -1,1 +1,5 @@
-alert("test")
+<% if @authorized %>
+$('.stage-form').html("<%= j render 'stage-form', teddy: @teddy, stage: @stage %>");
+<% else %>
+  alert("Pas autorisé")
+<%end%>

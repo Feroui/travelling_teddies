@@ -1,4 +1,5 @@
 class StagePolicy < ApplicationPolicy
+
   class Scope < Scope
     def resolve
       scope.all

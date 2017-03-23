@@ -1,5 +1,5 @@
 class TeddiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :validate_code]
+  skip_before_action :authenticate_user!, only: [:index, :show, :validate_code, :backpacker]
 
   def index
     @teddies_all = policy_scope(Teddy).order(created_at: :desc)
@@ -65,12 +65,33 @@ class TeddiesController < ApplicationController
     @teddy.save
   end
 
+  def backpacker
+
+  end
+
   def validate_code
     @teddy = Teddy.find_by code: params[:code]
+    @stage = Stage.new
+    #@stage = Stage.new(stage_params)
     authorize(@teddy || Teddy.new)
     respond_to do |format|
-      format.js
-    end
+        format.js do
+          if @teddy
+           @authorized = true
+          end
+        end
+      end
+    # if @stage.save
+    #   respond_to do |format|
+    #     format.html {redirect_to teddy_path(@teddy)}
+    #     format.js
+    #   end
+    # else
+    #   respond_to do |format|
+    #     format.html {render 'stage-form' }
+    #     format.js
+    #   end
+    # end
   end
 
   private
@@ -81,5 +102,9 @@ class TeddiesController < ApplicationController
 
   def get_current_user
     @user = current_user
+  end
+
+  def stage_params
+    params.require(:stage).permit(:backpacker_name, :backpacker_description)
   end
 end

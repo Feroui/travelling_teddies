@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show]
-  skip_before_action :authenticate_user!, only: :backpacker
 
   def show
     @user = current_user
@@ -21,10 +20,6 @@ class UsersController < ApplicationController
   end
 
   def dashboard
-
-  end
-
-  def backpacker
 
   end
 
