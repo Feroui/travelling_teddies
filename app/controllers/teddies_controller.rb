@@ -1,5 +1,5 @@
 class TeddiesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :validate_code]
 
   def index
     @teddies_all = policy_scope(Teddy).order(created_at: :desc)
@@ -63,6 +63,14 @@ class TeddiesController < ApplicationController
     @teddy = Teddy.new(teddy_params)
     @teddy.user = @user
     @teddy.save
+  end
+
+  def validate_code
+    @teddy = Teddy.find_by code: params[:code]
+    authorize(@teddy || Teddy.new)
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

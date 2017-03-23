@@ -1,1 +1,18 @@
-<h1>welcome</h1>
+<div class="text-center">
+
+  <h1>Welcome on travelling teddies !</h1>
+  <p>Enter the key you were given</p>
+
+  <%= form_tag validate_code_teddies_path, remote: true do %>
+  <%= text_field_tag :code %>
+  <%= submit_tag 'OK', class: 'btn btn-primary' %>
+  <% end %>
+
+
+
+  <h2>Write your adventure with Teddy.name</h2>
+  <p>First, tell us more about you</p>
+  <%#= render 'stage-form'%>
+
+  <p>I don't have a key yet</p>
+</div>

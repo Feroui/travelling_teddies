@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'backpacker', to: 'users#backpacker'
 
   resources :teddies do
-      resources :stages, only: [:show, :index, :new]
+    collection do
+      post :validate_code
+    end
+
+    resources :stages, only: [:show, :index, :new]
   end
 
 

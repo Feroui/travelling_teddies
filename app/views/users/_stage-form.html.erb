@@ -1,0 +1,14 @@
+<form>
+  <input type="text" name="Your name">
+  <input type="text" name="Where do you come from ?">
+  <input type="text" name="Who are you ? (in a few words)">
+  <input type="email" name="email">
+</form>
+<%= simple_form_for(@stage) do |f| %>
+  <%= f.input :backpacker_name, placeholder: "Your name" %>
+  <%= f.input :backpacker_origin, placeholder: "Where do you come from ?" %>
+  <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)' %>
+  <%= f.input :photo %> #à ajouter au model
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.submit %>
+<% end %>
