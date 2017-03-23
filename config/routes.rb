@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   end
   resources :users
+  get 'dashboard', to: 'users#dashboard'
 
   root to: 'pages#home'
 
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
     end
 
     resources :stages, only: [:show, :index, :new]
+    resources :followers, only: [:create, :destroy]
   end
 
 

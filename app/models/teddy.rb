@@ -2,6 +2,7 @@ class Teddy < ApplicationRecord
   before_validation :generate_code, on: :create
   belongs_to :user
   has_many :stages, dependent: :destroy
+  has_many :followers
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
   validates :code, presence: true, uniqueness: true

@@ -10,7 +10,7 @@
         </div>
         <p> <strong><%= @teddy.name%></strong> was sent by <strong><%= @teddy.stages.first.backpacker_name %></strong>. He started at <strong><%= @teddy.stages.first.adress %></strong> and now he's in <strong><%= @teddy.stages.last.adress %></strong> ! Check out how he arrived here ! </p>
         <div class="show-teddies-follow-button">
-          <%= link_to root_path do %>
+          <%= link_to teddy_followers_path(@teddy), method: :post do %>
             Follow <%= @teddy.name %> !
           <% end %>
         </div>

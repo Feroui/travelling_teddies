@@ -1,0 +1,31 @@
+.followed-teddies-card {
+  margin: 20px 0px;
+  border: solid;
+  border-color: #F2F2F2;
+  display: flex;
+}
+.image-follow {
+  border-radius: 50%
+}
+
+.button-following {
+  background-color: #E5373C;
+  border: none;
+  a {
+    color: white;
+    font-size: 15px;
+  }
+}
+.followed-teddies-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.followed-teddies-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  align-items: center;
+}
