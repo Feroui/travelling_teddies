@@ -11,7 +11,7 @@ gem 'redis'
 gem "pundit"
 gem 'faker'
 gem "geocoder"
-
+gem "rest-client"
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'

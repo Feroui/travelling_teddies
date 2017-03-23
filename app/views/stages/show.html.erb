@@ -1,1 +1,120 @@
-balbal
+<div class="banner-stage" style="background-image: linear-gradient(180deg, rgba(247,175,29,0.33) 0%, rgba(50,50,50,0.25) 100%), url(http://lorempixel.com/1080/720/city);">
+  <div class="container">
+    <div class="banner-stage-content">
+      <%= image_tag "http://lorempixel.com/200/200/cats", class: "avatar-stage"%>
+      <div class="stage-teddy-card">
+        <h3><%=@teddy.name%></h3>
+        <p>32 followers - 6 stops</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stage-wrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+        <div class="destination">
+          <h1>Vientiane</h1>
+          <h3><%=@stage.adress%></h3>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-9">
+        <div class="wiki">
+          <p><%= truncate(@desc, :length => 500)%> <%=link_to "see more", "https://en.wikipedia.org/wiki/Vientiane"%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container weather">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="weather">
+        <%= image_tag 'storm.png' %>
+        <p>Stormy</p>
+        <%= image_tag 'degree.png'%>
+        <p>Hot - 35°C</p>
+        <%= image_tag 'night.png'%>
+        <p>Night - it's 4AM</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container stage-content">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-6">
+      <div class="row">
+      <div class="col-xs-12">
+        <h3>Album</h3>
+      </div>
+      </div>
+      <div class="stage-gallery">
+        <div class="row">
+          <div class="col-xs-4">
+            <a href="http://lorempixel.com/1080/720/cats/1" class="swipebox" title="First picture">
+              <img src="http://lorempixel.com/160/160/cats/1" alt="image">
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <div class="stage-loved">
+              <h4>What I loved</h4>
+              <p>I really loved the temple and the people here, they are nice and helpful! It's very hot and the city is very lively.</p>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <a href="http://lorempixel.com/1080/720/cats/2" class="swipebox" title="Second picture">
+              <img src="http://lorempixel.com/160/160/cats/2" alt="image">
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-4">
+            <a href="http://lorempixel.com/1080/720/cats/3" class="swipebox" title="Third picture">
+              <img src="http://lorempixel.com/160/160/cats/3" alt="image">
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <a href="http://lorempixel.com/1080/720/cats/4" class="swipebox" title="Fourth picture">
+              <img src="http://lorempixel.com/160/160/cats/4" alt="image">
+            </a>
+          </div>
+          <div class="col-xs-4">
+            <a href="http://lorempixel.com/1080/720/cats/5" class="swipebox" title="Fifth picture">
+              <img src="http://lorempixel.com/160/160/cats/5" alt="image">
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>The story</h3>
+            <p><%=@stage.content%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <div class="stage-backpacker-profile">
+        <div class="stage-pic-name">
+          <%= image_tag src="http://lorempixel.com/160/160/people", class: "avatar"%>
+          <div class="stage-name-origin">
+            <h4><%= @stage.backpacker_name %></h4>
+            <p>Paris</p>
+          </div>
+        </div>
+        <hr>
+        <p><%= @stage.backpacker_description %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% content_for(:after_js) do%>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      $( '.swipebox' ).swipebox();
+    });
+  <%end%>
+<%end%>
