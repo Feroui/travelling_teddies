@@ -10,6 +10,9 @@
               <h2><strong><%=teddy.name%></strong></h2>
             </div>
             <div class="profilepic">
+              <% if teddy.photos? %>
+                <%= cl_image_tag teddy.photos.last.path, width: 296, height: 200, crop: :fill %>
+              <% end %>
             </div>
             <div class="profile-footer">
               <div class="characters">
