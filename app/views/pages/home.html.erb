@@ -1,4 +1,5 @@
 <% content_for(:navbar_class, "navbar-home")%>
+<% content_for(:alert_class, "alert-home")%>
 
 <div id="home-map" style="width: 100%; height: 100vh;">
 </div>
@@ -123,9 +124,9 @@
         <%= image_tag "Bozogc.png", class: 'img-left' %>
         <div class="home-desc">
           <h2><%= @teddy_1.name %></h2>
-          <p>was sent <span>10 months ago</span> by <span><%= @teddy_3.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
-          <p>He is now visiting <span>Bali</span>! He's been travelling with his good friend <span><%= @teddy_3.stages.last.backpacker_name %></span>.</p>
-          <div class="btn btn-primary">Follow its adventure!</div>
+          <p>was sent <span>10 months ago</span> by <span><%= @teddy_1.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
+          <p>He is now visiting <span>@teddy_1.stages.last.address</span>! He's been travelling with his good friend <span><%= @teddy_1.stages.last.backpacker_name %></span>.</p>
+          <div class="btn btn-primary">Follow his adventure!</div>
         </div>
       </div>
     </div>
@@ -135,9 +136,9 @@
       <div class="home-card">
         <div class="home-desc text-right">
           <h2><%= @teddy_2.name %></h2>
-          <p>was sent <span>10 months ago</span> by <span><%= @teddy_3.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
-          <p>He is now visiting <span>Bali</span>! He's been travelling with his good friend <span><%= @teddy_3.stages.last.backpacker_name %></span>.</p>
-          <div class="btn btn-primary">Follow its adventure!</div>
+          <p>was sent <span>10 months ago</span> by <span><%= @teddy_2.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
+          <p>He is now visiting <span>@teddy_2.stages.last.address</span>! He's been travelling with his good friend <span><%= @teddy_2.stages.last.backpacker_name %></span>.</p>
+          <div class="btn btn-primary">Follow his adventure!</div>
         </div>
         <%= image_tag "Bidouroch.png", class: 'img-right' %>
       </div>
@@ -150,8 +151,8 @@
         <div class="home-desc">
           <h2><%= @teddy_3.name %></h2>
           <p>was sent <span>10 months ago</span> by <span><%= @teddy_3.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
-          <p>He is now visiting <span>Bali</span>! He's been travelling with his good friend <span><%= @teddy_3.stages.last.backpacker_name %></span>.</p>
-          <div class="btn btn-primary">Follow its adventure!</div>
+          <p>He is now visiting <span>@teddy_3.stages.last.address</span>! He's been travelling with his good friend <span><%= @teddy_3.stages.last.backpacker_name %></span>.</p>
+          <div class="btn btn-primary">Follow his adventure!</div>
         </div>
         </div>
       </div>
