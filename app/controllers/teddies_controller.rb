@@ -55,8 +55,8 @@ class TeddiesController < ApplicationController
     authorize @teddy
     # @stages = policy_scope(Stage).order(created_at: :desc)
 
-    @stages = @teddy.stages.where.not(latitude: nil, longitude: nil).order(:created_at)
-    @last_stage = @teddy.stages.where.not(latitude: nil, longitude: nil).order(:created_at).last
+    @stages = @teddy.stages.where.not(latitude: nil, longitude: nil).order(:date)
+    @last_stage = @teddy.stages.where.not(latitude: nil, longitude: nil).order(:date).last
 
     @hash = Gmaps4rails.build_markers(@stages) do |stage, marker|
       marker.lat stage.latitude
