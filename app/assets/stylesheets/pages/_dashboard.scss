@@ -1,8 +1,10 @@
 .followed-teddies-card {
-  margin: 20px 0px;
+  margin-top: 20px;
   border: solid;
   border-color: #F2F2F2;
+  border-radius: 10px;
   display: flex;
+
 }
 .image-follow {
   border-radius: 50%
@@ -11,21 +13,40 @@
 .button-following {
   background-color: #E5373C;
   border: none;
+  margin: 2px;
   a {
     color: white;
     font-size: 15px;
   }
+  a:hover {
+
+  }
 }
+
 .followed-teddies-photo {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
 }
-.followed-teddies-actions {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  align-items: center;
+.followed-teddies-info{
+  margin-bottom: 30px;
+}
+.dasboard-my-teddy-card {
+  border: solid;
+  border-radius: 15px;
+  padding: 5px;
+}
+.followed-teddies-actions{
+      display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 26px;
+}
+.followed-teddies-actions-1 {
+  margin: 2px
+}
+.followed-teddies-actions-2 {
+  margin: 2px;
 }
