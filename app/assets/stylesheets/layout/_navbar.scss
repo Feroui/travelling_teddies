@@ -11,6 +11,20 @@
   font-weight: bold;
 }
 
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  z-index: 1000;
+  .navbar-teddies-link {
+    font-weight: bold;
+  }
+  img {
+    display: none;
+  }
+}
+
 /* Optional class to fix the navbar on top */
 .navbar-teddies-fixed {
   position: fixed;
@@ -33,6 +47,10 @@
   color: black;
 }
 
+.navbar-home h1 {
+  display: none;
+}
+
 /* Navbar right section (with form, links, button) */
 .navbar-teddies-right {
   display: flex;
@@ -52,24 +70,29 @@
   color: white;
   font-size: 14px;
 }
+
 .navbar-teddies-link:hover {
   color: #da552f;
   text-decoration: none;
 }
+
 .navbar-teddies-link-big {
   color: white;
   height: 40px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 20;
   margin-right: 80px;
-  background-color: #E5373C;
+  background-color: #D23333;
   display: flex;
   align-items: center;
 }
+
 .navbar-teddies-link-big:hover {
-  color: #F7AF1D;
-  text-decoration: none;
+    color: white;
+    background-color: #962E2F;
+    text-decoration: none;
 }
+
 .navbar-teddies-link-big-mobile {
   margin-right: none;
 }
