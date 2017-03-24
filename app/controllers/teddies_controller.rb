@@ -17,36 +17,43 @@ class TeddiesController < ApplicationController
     # end
 
 #################
-    @last_stages = Stage.joins("JOIN (SELECT teddy_id, MAX(created_at) AS created_at FROM stages GROUP BY teddy_id) stages2 ON stages.teddy_id = stages2.teddy_id AND stages.created_at = stages2.created_at")
+    names = []
+    Teddy.all.each { |t| names << t.name }
+    if params[:address].in?(names)
+      ted = Teddy.where(name: params[:address]).first
+      redirect_to teddy_path(ted)
+    else
+      @last_stages = Stage.joins("JOIN (SELECT teddy_id, MAX(created_at) AS created_at FROM stages GROUP BY teddy_id) stages2 ON stages.teddy_id = stages2.teddy_id AND stages.created_at = stages2.created_at")
 
-    if params[:address].present?
-      @last_stages = @last_stages.near(params[:address])
-    end
+      if params[:address].present?
+        @last_stages = @last_stages.near(params[:address], 300)
+      end
 
-###############
+  ###############
 
 
-    # @teddies = []
-    # @searched_stages.each do |last_stage|
-    #   @teddies << Teddy.find(last_stage.teddy_id)
-    # end
+      # @teddies = []
+      # @searched_stages.each do |last_stage|
+      #   @teddies << Teddy.find(last_stage.teddy_id)
+      # end
 
-    @teddies = Teddy.where(id: @last_stages.map(&:teddy_id))
-    @stages = @last_stages.where.not(latitude: nil, longitude: nil)
+      @teddies = Teddy.where(id: @last_stages.map(&:teddy_id))
+      @stages = @last_stages.where.not(latitude: nil, longitude: nil)
 
-    @hash = Gmaps4rails.build_markers(@stages) do |stage, marker|
-      marker.lat stage.latitude
-      marker.lng stage.longitude
-      marker.picture({
-                  :url => ActionController::Base.helpers.asset_path("teddypin.png"),
-                  :width   => 34,
-                  :height  => 48
-                 })
-      marker.infowindow "<img src='http://lorempixel.com/200/200/cats' class='avatar-large'/>
-            <br>
-            <p>#{stage.teddy.name} is in #{stage.adress}!</p>
-            <em><a href=\"#{teddy_path(stage.teddy)}\">See more</a></em>"
-      # marker.infowindow render_to_string(partial: "/stages/map_box", locals: { stage: stage })
+      @hash = Gmaps4rails.build_markers(@stages) do |stage, marker|
+        marker.lat stage.latitude
+        marker.lng stage.longitude
+        marker.picture({
+                    :url => ActionController::Base.helpers.asset_path("teddypin.png"),
+                    :width   => 34,
+                    :height  => 48
+                   })
+        marker.infowindow "<img src='http://lorempixel.com/200/200/cats' class='avatar-large'/>
+              <br>
+              <p>#{stage.teddy.name} is in #{stage.adress}!</p>
+              <em><a href=\"#{teddy_path(stage.teddy)}\">See more</a></em>"
+        # marker.infowindow render_to_string(partial: "/stages/map_box", locals: { stage: stage })
+      end
     end
   end
 
