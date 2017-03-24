@@ -1,14 +1,41 @@
-<h2>Write your adventure with <%=@teddy.name%></h2>
+<h1>Write your adventure with <%=@teddy.name%></h1>
 
-<p>Tell us more about you</p>
 <div id="inputs">
-  <%= simple_form_for([teddy, stage], remote: true) do |f| %>
-    <%= f.input :backpacker_name, placeholder: "Your name", label: false %>
-    <%= f.input :backpacker_origin, placeholder: "Where do you come from ?" %>
-    <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)' %>
-    <%#= f.input :email, placeholder: 'Who are you ? (in a few words)' %>
-    <%#= f.input :photo %>
-    <%#= f.input :photo_cache, as: :hidden %>
-    <%= f.submit %>
+  <%= simple_form_for([teddy, stage]) do |f| %>
+    <div id= "first-part">
+      <h2>First, tell us more about you</h2>
+      <%= f.input :backpacker_name, placeholder: "Your name", label: false %>
+      <%= f.input :backpacker_origin, placeholder: "Where do you come from ?", label: false%>
+      <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)', label:false %>
+      <%= f.input :backpacker_email, placeholder: "Leave your email to communicate with Teddy's owner", label: 'Optionnal' %>
+      <%#= f.input :photo %>
+      <%#= f.input :photo_cache, as: :hidden %>
+      <div class="first-next-btn">
+        <i class="fa fa-arrow-down" />
+      </div>
+    </div>
+
+    <div id= "second-part" class="hide">
+      <h2>What's upp with you and <%=teddy.name%></h2>
+      <%= f.input :adress, placeholder: 'Where are you ?', label:false %>
+      <%= f.input :date, value: Time.now%>
+      <div class="second-next-btn">
+        <i class="fa fa-arrow-down" />
+      </div>
+    </div>
+
+    <div id= 'third-part' class="hide">
+      <h2>Share your story</h2>
+      <%#= f.input :title, placeholder: 'Give a title to your stage article', label:false %>
+      <%= f.input :content, placeholder: 'Describe your stay, tell an anecdot...', label:false %>
+      <%= hidden_field_tag :code, @teddy.code %>
+      <%#= f.input :loved, placeholder: 'What's your best moment, label:false %>
+      <%#= f.input :photo %>
+      <%#= f.input :photo_cache, as: :hidden %>
+      <%= f.submit %>
+    </div>
+
   <% end %>
 </div>
+
+

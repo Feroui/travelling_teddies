@@ -1,14 +1,15 @@
 <div class="text-center">
 
-  <h1>Welcome on travelling teddies !</h1>
-  <p>Enter the key you were given</p>
-
-  <%= form_tag validate_code_teddies_path, remote: true do %>
-  <%= text_field_tag :code %>
-  <%= submit_tag 'OK', class: 'btn btn-primary' %>
+<div class="authentification-form">
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        $('.authentification-form').html("<%= j render 'authentification-form' %>");
+      });
+    <% end %>
   <% end %>
+</div>
 
-  <div class="stage-form"></div>
+<div class="stage-form"></div>
 
-  <p>I don't have a key yet</p>
 </div>

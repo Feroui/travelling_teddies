@@ -1,5 +1,22 @@
 <% if @authorized %>
-$('.stage-form').html("<%= j render 'stage-form', teddy: @teddy, stage: @stage %>");
+$('.authentification-form').hide()
+$('.stage-form').html("<%= j render 'stage-form', teddy: @teddy, stage: @stage %>").slideDown();
+
+$(document).ready(function () {
+    $('#first-part').fadeIn(1000).removeClass('hidden');
+});
+
+$('.first-next-btn').on('click', function(event) {
+  $('#first-part').toggleClass('hide');
+  $('#second-part').toggleClass('show');
+});
+
+$('.second-next-btn').on('click', function(event) {
+  $('#second-part').removeClass('show');
+  $('#third-part').toggleClass('show');
+});
+
 <% else %>
   alert("Wrong key, please try again.")
 <%end%>
+
