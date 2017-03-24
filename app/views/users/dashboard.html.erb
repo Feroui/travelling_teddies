@@ -23,31 +23,29 @@
         <div class="followed-teddies-card">
           <div class="col-xs-2">
             <div class="info-teddies-followed followed-teddies-photo text-center">
-              <img src="http://lorempixel.com/80/80/cats/1", class= "image-follow">
+              <img src="http://lorempixel.com/100/100/cats/1", class= "image-follow">
             </div>
           </div>
           <div class="col-xs-10">
             <div class="followed-teddies-all">
               <div class="col-xs-12 col-sm-9">
-                <div class="info-teddies-followed followed-teddies-info">
+                <div class="followed-teddies-info">
 
-                    <h2><%= follower.teddy.stages.last.adress %></h2>
+                    <ul class= "list-inline">
+                      <li> <h2><%= follower.teddy.stages.last.adress %></h2></li>
+                      <li><p> - <%= follower.teddy.stages.last.created_at.strftime("%d %b. %Y") %></p></li>
+                    </ul>
                     <p><strong><%= follower.teddy.name %></strong> travelled with <strong> <%= follower.teddy.stages.last.backpacker_name %></strong>!</p>
-                    <%= follower.teddy.stages.last.created_at.strftime("%d %b. %Y") %>
+
 
                 </div>
               </div>
-              <!-- <div class="col-xs-12 col-sm-3">
-                <div class="info-teddies-followed followed-teddies-date text-center">
-                  <h2></h2>
-                </div>
-              </div> -->
-              <div class="col-xs-12 col-sm-3 text-center">
+              <div class="col-xs-12 col-sm-3">
                 <div class="followed-teddies-actions">
-                  <div class="btn btn-primary button-following info-teddies-followed">
-                    <%= link_to "See his journey", teddy_stage_path(follower.teddy, follower.teddy.stages.last) %>
-                  </div>
-                  <div class="btn btn-primary button-following info-teddies-followed">
+                    <div class="btn btn-primary button-following">
+                      <%= link_to "See his journey", teddy_stage_path(follower.teddy, follower.teddy.stages.last) %>
+                    </div>
+                  <div class="btn btn-primary button-following">
                     <%= link_to teddy_follower_path(follower.teddy, follower), method: :delete do %>
                       Unfollow
                     <% end %>
