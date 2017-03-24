@@ -62,8 +62,8 @@
     <div class="dasboard-my-teddy-card">
       <% if !current_user.teddy %>
         <div class="btn btn-primary">
-          <%= link_to 'new teddy', new_teddy_path %>
-        </button>
+          <%= link_to 'new teddy', new_teddy_path, class: "bouton-dashboard-create-teddy" %>
+        </div>
       <% else %>
         <%= cl_image_tag current_user.teddy.photos.first.path, transformation: [{width: 100, height: 100, gravity: 'face', radius: 'max', crop: 'fill'}]%>
         <%= current_user.teddy.name %>
