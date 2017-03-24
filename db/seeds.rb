@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
+Follower.destroy_all
 Stage.destroy_all
 Teddy.destroy_all
 User.destroy_all
@@ -25,7 +26,10 @@ User.destroy_all
   ted = Teddy.new(
     name: Faker::LordOfTheRings.character + i.to_s,
     description: Faker::Lorem.paragraph,
-    user: us
+    user: us,
+    gender: "male",
+    origin: "Paris",
+    personality: "cudly"
   )
   ted.save!
   10.times do

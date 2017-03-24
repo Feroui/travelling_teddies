@@ -1,9 +1,11 @@
-<div id="home-map" style="width: 100%; height: calc(100vh - 70px);">
+<% content_for(:navbar_class, "navbar-home")%>
+
+<div id="home-map" style="width: 100%; height: 100vh;">
 </div>
 
 <div id="map-content-wrapper">
   <div class="map-content text-center">
-    <h1>Travelling Teddies</h1>
+    <h1><%= image_tag "teddy_marker.png" %><span>Travelling Teddies</span></h1>
     <p>Find a Teddy now :)</p>
     <%= form_tag '/teddies', method: :get, class: "form-inline" do  %>
       <%= text_field_tag 'address', nil, placeholder: "Teddy name or region", class: "form-control input-lg" %>
@@ -97,7 +99,7 @@
         internal: { id: 'home-map' },
         provider: {
           zoom:      3,
-          center:    new google.maps.LatLng(53.385873, -1.471471),
+          center:    new google.maps.LatLng(19.3962401, 68.6019981),
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles:    mapStyle,
           disableDefaultUI: true,
@@ -107,12 +109,7 @@
       function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        };
+
       });
     });
   <% end %>

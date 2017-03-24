@@ -37,6 +37,15 @@ class TeddiesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@stages) do |stage, marker|
       marker.lat stage.latitude
       marker.lng stage.longitude
+      marker.picture({
+                  :url => ActionController::Base.helpers.asset_path("teddypin.png"),
+                  :width   => 34,
+                  :height  => 48
+                 })
+      marker.infowindow "<img src='http://lorempixel.com/200/200/cats' class='avatar-large'/>
+            <br>
+            <p>#{stage.teddy.name} is in #{stage.adress}!</p>
+            <em><a href=\"#{teddy_path(stage.teddy)}\">See more</a></em>"
       # marker.infowindow render_to_string(partial: "/stages/map_box", locals: { stage: stage })
     end
   end
@@ -57,12 +66,15 @@ class TeddiesController < ApplicationController
 
   def new
     @teddy = Teddy.new
+    authorize @teddy
   end
 
   def create
     @teddy = Teddy.new(teddy_params)
-    @teddy.user = @user
+    @teddy.user = current_user
+    authorize @teddy
     @teddy.save
+    redirect_to dashboard_path
   end
 
   def backpacker
@@ -85,7 +97,7 @@ class TeddiesController < ApplicationController
   private
 
   def teddy_params
-    params.require(:teddy).permit(:name, :description, :valid, photos: [])
+    params.require(:teddy).permit(:name, :description, :gender, :origin, :personality, :valid, photos: [])
   end
 
   def get_current_user
