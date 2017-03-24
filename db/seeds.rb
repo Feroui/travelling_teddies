@@ -26,7 +26,10 @@ User.destroy_all
   ted = Teddy.new(
     name: Faker::LordOfTheRings.character + i.to_s,
     description: Faker::Lorem.paragraph,
-    user: us
+    user: us,
+    gender: "male",
+    origin: "Paris",
+    personnality: "cudly"
   )
   ted.save!
   10.times do
