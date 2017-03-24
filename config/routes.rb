@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     collection do
       post :validate_code
     end
-    resources :stages, only: [:show, :index, :new]
+
+    resources :stages, only: [:show, :index, :new, :create]
+
     resources :followers, only: [:create, :destroy]
   end
 

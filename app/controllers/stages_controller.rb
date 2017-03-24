@@ -2,7 +2,7 @@ require "rest-client"
 require "json"
 
 class StagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :create]
   before_action :set_stage, only: [:show, :edit, :update, :destroy]
 
 
@@ -19,19 +19,22 @@ class StagesController < ApplicationController
   end
 
   def create
+
+    @teddy = Teddy.find_by(code: params[:code])
+    @stage = Stage.new(stage_params)
     authorize @stage
-    #@stage = Stage.new(stage_params)
-      # if @stage.save
-    #   respond_to do |format|
-    #     format.html {redirect_to teddy_path(@teddy)}
-    #     format.js
-    #   end
-    # else
-    #   respond_to do |format|
-    #     format.html {render 'stage-form' }
-    #     format.js
-    #   end
-    # end
+    @stage.teddy = @teddy
+      if @stage.save
+      respond_to do |format|
+        format.html {redirect_to teddy_path(@teddy)}
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.html {render 'stage-form' }
+        format.js
+      end
+    end
   end
 
   def edit
@@ -50,6 +53,7 @@ private
   end
 
   def stage_params
-    params.require(:stage).permit(:backpacker_name, :backpacker_description)
+    params.require(:stage).permit(:backpacker_name, :backpacker_description, :date,
+      :content, :adress, :backpacker_origin, :backpacker_email)
   end
 end
