@@ -2,7 +2,11 @@
   <div class="container">
     <div class="banner-stage-content">
       <%= link_to teddy_path(@teddy) do %>
+      <% if @teddy.photos? %>
+      <%= cl_image_tag @teddy.photos.first.path, class: "avatar-stage" %>
+      <% else %>
       <%= image_tag "http://lorempixel.com/200/200/cats", class: "avatar-stage"%>
+      <% end %>
       <div class="stage-teddy-card">
       <% end %>
         <h3><%=@teddy.name%></h3>
