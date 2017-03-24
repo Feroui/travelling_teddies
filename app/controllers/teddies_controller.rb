@@ -57,12 +57,15 @@ class TeddiesController < ApplicationController
 
   def new
     @teddy = Teddy.new
+    authorize @teddy
   end
 
   def create
     @teddy = Teddy.new(teddy_params)
-    @teddy.user = @user
+    @teddy.user = current_user
+    authorize @teddy
     @teddy.save
+    redirect_to dashboard_path
   end
 
   def backpacker
@@ -85,7 +88,7 @@ class TeddiesController < ApplicationController
   private
 
   def teddy_params
-    params.require(:teddy).permit(:name, :description, :valid, photos: [])
+    params.require(:teddy).permit(:name, :description, :gender, :origin, :personality, :valid, photos: [])
   end
 
   def get_current_user

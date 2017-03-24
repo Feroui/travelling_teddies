@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1 text-center">
+      <h1>Create a new <strong>Teddy</strong> and follow him in his journey</h1>
+    </div>
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <%= simple_form_for [@teddy] do |f| %>
+       <%= f.input :name, :input_html => {:style=> 'width: 200px'}%>
+        <%= f.input :origin, :input_html => {:style=> 'width: 200px'} %>
+        <%= f.input :personality do %>
+        <%= f.select :personality, ['adventurous', 'ambitious', 'careful', 'courageous', 'creative', 'enthusiastic', 'fearless', 'friendly', 'funny', 'generous', 'helpful', 'honest', 'humorous'], include_blank: true%>
+        <% end %>
+        <%= f.input :gender do %>
+          <%= f.select :gender, ['Female', 'Male', 'Other'], include_blank: true %>
+        <% end %>
+        <%= f.input :description, placeholder: "Add a description to your teddy"  %>
+          <%= f.input :photos, as: :attachinary %>
+        <%= f.input :user, as: :hidden %>
+        <%= f.submit "Create a new Teddy", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
