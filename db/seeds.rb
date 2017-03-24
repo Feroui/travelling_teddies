@@ -29,7 +29,7 @@ User.destroy_all
     user: us,
     gender: "male",
     origin: "Paris",
-    personnality: "cudly"
+    personality: "cudly"
   )
   ted.save!
   10.times do
