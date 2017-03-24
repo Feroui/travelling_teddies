@@ -61,7 +61,7 @@
   <div class="col-xs-12 col-sm-3">
     <div class="dasboard-my-teddy-card">
       <% if !current_user.teddy %>
-        <button class="btn-primary">
+        <div class="btn btn-primary">
           <%= link_to 'new teddy', new_teddy_path %>
         </button>
       <% else %>
@@ -83,7 +83,7 @@
           mapTypeId: google.maps.MapTypeId.TERRAIN
         });
 
-        var image = '<%= image_path 'logo1.png' %>'
+        var image = '<%= image_path 'teddypin.png' %>'
         <% current_user.followers.each do |follower| %>
           var marker = new google.maps.Marker({
           position: <%= raw( { lat: follower.teddy.stages.last.latitude, lng: follower.teddy.stages.last.longitude }.to_json) %>,
