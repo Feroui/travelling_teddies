@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @stages = Stage.joins("JOIN (SELECT teddy_id, MAX(created_at) AS created_at FROM stages GROUP BY teddy_id) stages2 ON stages.teddy_id = stages2.teddy_id AND stages.created_at = stages2.created_at")
+    last_stages = Stage.joins("JOIN (SELECT teddy_id, MAX(created_at) AS created_at FROM stages GROUP BY teddy_id) stages2 ON stages.teddy_id = stages2.teddy_id AND stages.created_at = stages2.created_at")
+    @stages = last_stages.sample(10)
 
     @hash = Gmaps4rails.build_markers(@stages) do |stage, marker|
       marker.lat stage.latitude
