@@ -26,7 +26,7 @@ class TeddiesController < ApplicationController
       @last_stages = Stage.joins("JOIN (SELECT teddy_id, MAX(created_at) AS created_at FROM stages GROUP BY teddy_id) stages2 ON stages.teddy_id = stages2.teddy_id AND stages.created_at = stages2.created_at")
 
       if params[:address].present?
-        @last_stages = @last_stages.near(params[:address], 300)
+        @last_stages = @last_stages.near(params[:address], 1000)
       end
 
   ###############
