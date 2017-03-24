@@ -97,7 +97,7 @@
         internal: { id: 'home-map' },
         provider: {
           zoom:      3,
-          center:    new google.maps.LatLng(53.385873, -1.471471),
+          center:    new google.maps.LatLng(19.3962401, 68.6019981),
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles:    mapStyle,
           disableDefaultUI: true,
@@ -107,12 +107,7 @@
       function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        };
+
       });
     });
   <% end %>

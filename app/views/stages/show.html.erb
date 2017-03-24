@@ -1,8 +1,10 @@
 <div class="banner-stage" style="background-image: linear-gradient(180deg, rgba(247,175,29,0.33) 0%, rgba(50,50,50,0.25) 100%), url(http://lorempixel.com/1080/720/city);">
   <div class="container">
     <div class="banner-stage-content">
+      <%= link_to teddy_path(@teddy) do %>
       <%= image_tag "http://lorempixel.com/200/200/cats", class: "avatar-stage"%>
       <div class="stage-teddy-card">
+      <% end %>
         <h3><%=@teddy.name%></h3>
         <p>32 followers - 6 stops</p>
       </div>
