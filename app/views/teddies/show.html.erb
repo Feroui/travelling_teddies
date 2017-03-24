@@ -4,8 +4,12 @@
       <div class="show-teddies-row-top center-items">
         <div class="show-teddies-row-top-id">
           <ul class="list-inline">
-            <li> <img src="http://lorempixel.com/80/80/cats/1"/></li>
-            <li><h1><%= @teddy.name %></h1></li>
+            <% if @teddy.photos? %>
+              <li><%= cl_image_tag @teddy.photos.first.path, class: "avatar" %></li>
+            <% else %>
+              <li> <img src="http://lorempixel.com/80/80/cats/1"/></li>
+            <% end %>
+              <li><h1><%= @teddy.name %></h1></li>
           </ul>
         </div>
         <p> <strong><%= @teddy.name%></strong> was sent by <strong><%= @teddy.stages.first.backpacker_name %></strong>. He started at <strong><%= @teddy.stages.first.adress %></strong> and now he's in <strong><%= @teddy.stages.last.adress %></strong> ! Check out how he arrived here ! </p>
