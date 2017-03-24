@@ -30,7 +30,7 @@
     <% else %>
 
       <!-- Login text link -->
-      <%= link_to "I'm a backpacker", "#", class: "navbar-teddies-item  navbar-teddies-link-big" %>
+      <%= link_to "I'm a backpacker", backpacker_path, class: "navbar-teddies-item  navbar-teddies-link-big" %>
       <%= link_to t(".about_us", default: "About Us"), "#", class: "navbar-teddies-item navbar-teddies-link" %>
       <%= link_to t(".sign_in", default: "Log In"), new_user_session_path, class: "navbar-teddies-item navbar-teddies-link" %>
       <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path, class: "navbar-teddies-item navbar-teddies-link" %>
