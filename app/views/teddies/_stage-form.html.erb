@@ -4,8 +4,8 @@
 <div id="inputs">
   <%= simple_form_for([teddy, stage], remote: true) do |f| %>
     <%= f.input :backpacker_name, placeholder: "Your name", label: false %>
-    <%= f.input :backpacker_origin, placeholder: "Where do you come from ?" %>
-    <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)' %>
+    <%= f.input :backpacker_origin, placeholder: "Where do you come from ?", label: false%>
+    <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)', label:false %>
     <%#= f.input :email, placeholder: 'Who are you ? (in a few words)' %>
     <%#= f.input :photo %>
     <%#= f.input :photo_cache, as: :hidden %>
