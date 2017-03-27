@@ -1,16 +1,121 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
 
+puts "Cleaning database..."
 Follower.destroy_all
 Stage.destroy_all
 Teddy.destroy_all
 User.destroy_all
+
+puts "Creating users..."
+bob = User.create!(
+  name: "Bob",
+  email: "bob@gmail.com",
+  password: "123456"
+  )
+bob.photos = [File.open(Rails.root.join('db/fixtures/images/user_bob.jpg'))]
+  bob.save!
+aurel = User.create!(
+  name: "Aurel",
+  email: "aurel@gmail.com",
+  password: "123456"
+  )
+aurel.photos = [File.open(Rails.root.join('db/fixtures/images/user_aurel.jpg'))]
+  aurel.save!
+alain = User.create!(
+  name: "Alain",
+  email: "alain@gmail.com",
+  password: "123456"
+  )
+alain.photos = [File.open(Rails.root.join('db/fixtures/images/user_alain.jpg'))]
+  alain.save!
+alix = User.create!(
+  name: "Alix",
+  email: "alix@gmail.com",
+  password: "123456"
+  )
+alix.photos = [File.open(Rails.root.join('db/fixtures/images/user_alix.jpg'))]
+  alix.save!
+jordan = User.create!(
+  name: "Jordan",
+  email: "jordan@gmail.com",
+  password: "123456"
+  )
+jordan.photos = [File.open(Rails.root.join('db/fixtures/images/user_jordan.jpg'))]
+  jordan.save!
+thomas = User.create!(
+  name: "Thomas",
+  email: "thomas@gmail.com",
+  password: "123456"
+  )
+thomas.photos = [File.open(Rails.root.join('db/fixtures/images/user_thomas.jpg'))]
+  thomas.save!
+
+
+puts "Creating Teddies..."
+teddy_bozo = Teddy.create!(
+  name: "Bozo",
+  description: "Bozo is crative project from an great artist called Bob. Bozo has been sent travelling to communicate happiness and love. He's creating link between people all over the world. If one day you meet Bozo somewhere, it will be your lucky day",
+  user: bob,
+  gender: "other"
+  origin: "jamaïca"
+  personality:
+  )
+teddy_bozo.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_bozo.jpg'))]
+  teddy_bozo.save!
+teddy_choupi = Teddy.create!(
+  name: "Choupi",
+  description: "Choupi has been sent by Aurel and her class of twenty childs. Choupi is a new teaching tool that helps Aurel to speack about geography and culture with her class. They want to discover Europe and they are all really thanksfull to all the travellers that helps Choupi to travel trought all those countries",
+  user: aurel,
+  gender: "male"
+  origin: "bruxelles"
+  personality:
+  )
+teddy_choupi.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_choupi.jpg'))]
+  teddy_choupi.save!
+teddy_pinou = Teddy.create!(
+  name: "Pinou",
+  description: "Pinou is an entrepreneur! He as been sent by Alain from HEC Paris. Pinou is supose to communicate about entreprise created by HEC entrepreneur, the oldest and greatest entreprneurial school in the world. Pinou is going to visit San Francisco and all california before flying to Cuba with students to finaly travel the worl with the flow",
+  user: alain,
+  gender: "male"
+  origin: "Jouy-en-Josas"
+  personality:
+  )
+teddy_pinou.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_pinou.jpg'))]
+  teddy_pinou.save!
+teddy_bayon = Teddy.create!(
+  name: "Bayon",
+  description: "Bayon is from Angkor's Temples, where a beautiful project existe since 20 years. A great association named 'école du Bayon' is teaching hundreds of child and teenager and young adult usefull skills to help them finding a job. They started as a primary school and the school is a reference in Cambodia for the quality of their student. Since the creation, the school helps more than a thousand people to escape misary", 
+  user: thomas,
+  gender: "female"
+  origin: "Siem Reap"
+  personality:
+  )
+teddy_bayon.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_bayon.jpg'))]
+  teddy_bayon.save!
+teddy_cousteau = Teddy.create!(
+  name: "Cousteau",
+  description: "Cousteau is the greatest sailor of all time and his teddy form the same name is here to perpetuate his memory. Send form Antigua in the Caribbean, his going to cross Atlantic to Cap Vert with Jordan! Then, he's gonna jump on an other boat and continue saling for ever",
+  user: jordan,
+  gender: "male"
+  origin: "Antigua"
+  personality:
+  )
+teddy_cousteau.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_cousteau.jpg'))]
+  teddy_cousteau.save!
+teddy_potam = Teddy.create!(
+  name: "Potam",
+  description: ""
+  user: jordan,
+  gender: "male"
+  origin: "Antigua"
+  personality:
+  )
+teddy_potam.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_potam.jpg'))]
+  teddy_potam.save!
+
+puts "Finished!"
+
+
 
 (1..10).to_a.each do |i|
 
@@ -21,6 +126,7 @@ User.destroy_all
     email: mail,
     password: "123456"
   )
+  us.photos = [File.open(Rails.root.join('db/fixtures/images/user_bob.jpg'))]
   us.save!
 
   ted = Teddy.new(
@@ -30,6 +136,7 @@ User.destroy_all
     gender: "male",
     origin: "Paris",
     personality: "cudly"
+
   )
   ted.save!
   10.times do
@@ -38,6 +145,9 @@ User.destroy_all
       content: Faker::Lorem.paragraph,
       backpacker_name: Faker::Superhero.name,
       backpacker_description: Faker::Superhero.power,
+      backpacker_origin: Faker::Address.country,
+      crush: Faker::Lorem.paragraph,
+      backpacker_email: coucou@coucou.com
       adress: Faker::Address.country,
       teddy: ted
     )
