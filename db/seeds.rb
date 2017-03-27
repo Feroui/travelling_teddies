@@ -28,13 +28,13 @@ alain = User.create!(
   )
 alain.photos = [File.open(Rails.root.join('db/fixtures/images/user_alain.jpg'))]
   alain.save!
-alix = User.create!(
-  name: "Alix",
-  email: "alix@gmail.com",
+helo = User.create!(
+  name: "Helo",
+  email: "helo@gmail.com",
   password: "123456"
   )
-alix.photos = [File.open(Rails.root.join('db/fixtures/images/user_alix.jpg'))]
-  alix.save!
+helo.photos = [File.open(Rails.root.join('db/fixtures/images/user_helo.jpg'))]
+  helo.save!
 jordan = User.create!(
   name: "Jordan",
   email: "jordan@gmail.com",
@@ -58,7 +58,7 @@ teddy_bozo = Teddy.create!(
   user: bob,
   gender: "other"
   origin: "jamaïca"
-  personality:
+  personality: "creative"
   )
 teddy_bozo.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_bozo.jpg'))]
   teddy_bozo.save!
@@ -68,7 +68,7 @@ teddy_choupi = Teddy.create!(
   user: aurel,
   gender: "male"
   origin: "bruxelles"
-  personality:
+  personality: "generous"
   )
 teddy_choupi.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_choupi.jpg'))]
   teddy_choupi.save!
@@ -78,7 +78,7 @@ teddy_pinou = Teddy.create!(
   user: alain,
   gender: "male"
   origin: "Jouy-en-Josas"
-  personality:
+  personality: "ambitious"
   )
 teddy_pinou.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_pinou.jpg'))]
   teddy_pinou.save!
@@ -88,7 +88,7 @@ teddy_bayon = Teddy.create!(
   user: thomas,
   gender: "female"
   origin: "Siem Reap"
-  personality:
+  personality: "helpful"
   )
 teddy_bayon.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_bayon.jpg'))]
   teddy_bayon.save!
@@ -98,17 +98,17 @@ teddy_cousteau = Teddy.create!(
   user: jordan,
   gender: "male"
   origin: "Antigua"
-  personality:
+  personality: "courageous"
   )
 teddy_cousteau.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_cousteau.jpg'))]
   teddy_cousteau.save!
 teddy_potam = Teddy.create!(
   name: "Potam",
-  description: ""
-  user: jordan,
+  description: "Potam is a cute little hipopotam sent by a little girl that always dreams to travel the world. Before she gets older and big enough to be on her own, Hélo decided to send her besfriend, Potam, to travel and show her the most beautiful nauture on this planet",
+  user: helo,
   gender: "male"
-  origin: "Antigua"
-  personality:
+  origin: "Paris"
+  personality: "friendly"
   )
 teddy_potam.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_potam.jpg'))]
   teddy_potam.save!
