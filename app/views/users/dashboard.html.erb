@@ -65,9 +65,15 @@
           <%= image_tag "logo.png" %>
           <%= link_to 'new teddy', new_teddy_path, class: "btn btn-primary button-following" %>
       <% else %>
-        <%= cl_image_tag current_user.teddy.photos.first.path, transformation: [{width: 100, height: 100, gravity: 'face', radius: 'max', crop: 'fill'}]%>
-        <%= current_user.teddy.name %>
-        On DATE-LAST-STAGES your teddy is at PLACE-LAST-STAGE with BACKPACKER-LAST-SATGE
+        <h2> <%= current_user.teddy.name %></h2>
+        <%= cl_image_tag current_user.teddy.photos.first.path, class: "image-teddy-dashboard" %>
+        <% if current_user.teddy.stages.first %>
+            <p class= "text-center">On <strong> <%= current_user.teddy.stages.last.date.strftime("%d %b. %Y") %></strong> your teddy was in <strong><%= current_user.teddy.stages.last.adress %></strong>  with <strong> <%= current_user.teddy.stages.last.backpacker_name %></strong></p>
+            <%= link_to 'Follow his adventure', teddy_path(current_user.teddy), class: "btn btn-primary button-following" %>
+          <% else %>
+            <p>Your teddy hasn't left yet</p>
+            <%= link_to 'Checkout his profile', teddy_path(current_user.teddy), class: "btn btn-primary button-following" %>
+          <% end %>
       <% end %>
     </div>
   </div>

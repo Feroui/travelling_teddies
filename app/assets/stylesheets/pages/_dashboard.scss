@@ -9,9 +9,7 @@
 .followed-teddies-card:hover {
   background-color: #B2B2B2;
 }
-.image-follow {
-  border-radius: 50%
-}
+
 .button-following {
   margin-top: 45px;
   display: flex;
@@ -25,21 +23,24 @@
   }
 }
  .button-following:hover {
-    background-color: #E5373C;
+    background-color: #FF4850;
   }
 
 
 .followed-teddies-info{
   margin-bottom: 30px;
+  cursor: pointer;
 }
 .dasboard-my-teddy-card {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   background-color: #D9DEA8;
   border-radius: 5px;
   padding: 5px;
+  height: 398px;
+  padding: 20px 0px;
   .btn {
     margin: 10px;
   }
@@ -48,6 +49,7 @@
 .followed-teddies-actions {
   display: flex;
   margin-top: 45px;
+  cursor: pointer;
 }
 
 .bouton-dashboard-create-teddy {
