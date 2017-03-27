@@ -1,9 +1,13 @@
 <h1>Welcome on travelling teddies !</h1>
-  <p>Enter the key you were given</p>
-
-  <%= form_tag validate_code_teddies_path, remote: true do %>
-  <%= text_field_tag :code %>
-  <%= submit_tag 'OK', class: 'btn btn-primary' %>
-  <% end %>
-
- <p>I don't have a key yet</p>
+  <div class="auth">
+    <p>Enter the key you were given</p>
+    <%= form_tag validate_code_teddies_path, remote: true do %>
+    <%= text_field_tag :code %>
+    <div>
+    <%= submit_tag 'Write your journey', class: 'btn btn-primary' %>
+    </div>
+    <% end %>
+  </div>
+  <div>
+    <%#= link_to "I don't have a key yet !", new_user_registration_path, class: "no-key"%>
+  </div>
