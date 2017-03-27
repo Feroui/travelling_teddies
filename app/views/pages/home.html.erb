@@ -7,7 +7,7 @@
 <div id="map-content-wrapper">
   <div class="map-content text-center">
     <h1><%= image_tag "teddy_marker.png" %><span>Travelling Teddies</span></h1>
-    <p>Find a Teddy now :)</p>
+    <p>Discover the world through teddies' eyes!</p>
     <%= form_tag '/teddies', method: :get, class: "form-inline" do  %>
       <%= text_field_tag 'address', nil, placeholder: "Teddy name or region", class: "form-control input-lg" %>
       <%= submit_tag "Search", class: "btn btn-lg btn-primary" %>
@@ -110,55 +110,73 @@
       function() {
         markers = handler.addMarkers(<%= raw @hash.to_json %>);
         handler.bounds.extendWith(markers);
-
       });
     });
   <% end %>
 <% end %>
 
-<div class="container home-cards">
-  <h1 class="text-center">Featured teddies</h1>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="home-card">
-        <%= image_tag "Bozogc.png", class: 'img-left' %>
-        <div class="home-desc">
-          <h2><%= @teddy_1.name %></h2>
-          <p>was sent <span>10 months ago</span> by <span><%= @teddy_1.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
-          <p>He is now visiting <span><%= @teddy_1.stages.last.adress %></span>! He's been travelling with his good friend <span><%= @teddy_1.stages.last.backpacker_name %></span>.</p>
-          <div class="btn btn-primary">Follow his adventure!</div>
+<div class="home-cards">
+  <div class="container text-center">
+    <div class="title-featured">
+      <%= image_tag "rays-left.png" %>
+      <h1>Featured teddies</h1>
+      <%= image_tag "rays-right.png" %>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2><%= @teddy_1.name %></h2>
+        <div class="home-card">
+          <div class="home-card-image-div">
+            <%= image_tag "http://lorempixel.com/1080/720/city/1/", class: 'img-left' %>
+          </div>
+          <div class="home-desc">
+            <i class="fa fa-quote-left" aria-hidden="true"></i>
+            <p><span><%= @teddy_1.name %></span> was sent <span>10 months ago</span> by <span><%= @teddy_1.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
+            <p>He is now visiting <span><%= @teddy_1.stages.last.adress %></span>! He's been travelling with his good friend <span><%= @teddy_1.stages.last.backpacker_name %></span>.</p>
+            <i class="fa fa-quote-right" aria-hidden="true"></i>
+            <a href="<%= teddy_path(@teddy_1) %>" class="btn btn-primary hvr-grow">Follow his adventure!</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="home-card">
-        <div class="home-desc text-right">
-          <h2><%= @teddy_2.name %></h2>
-          <p>was sent <span>10 months ago</span> by <span><%= @teddy_2.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
-          <p>He is now visiting <span><%= @teddy_2.stages.last.adress %></span>! He's been travelling with his good friend <span><%= @teddy_2.stages.last.backpacker_name %></span>.</p>
-          <div class="btn btn-primary">Follow his adventure!</div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2 style="text-align:right;"><%= @teddy_2.name %></h2>
+        <div class="home-card">
+          <div class="home-desc">
+            <i class="fa fa-quote-left" aria-hidden="true"></i>
+            <p><span><%= @teddy_2.name %></span> was sent <span>10 months ago</span> by <span><%= @teddy_2.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
+            <p>He is now visiting <span><%= @teddy_2.stages.last.adress %></span>! He's been travelling with his good friend <span><%= @teddy_2.stages.last.backpacker_name %></span>.</p>
+            <i class="fa fa-quote-right" aria-hidden="true"></i>
+            <a href="<%= teddy_path(@teddy_2) %>" class="btn btn-primary hvr-grow">Follow his adventure!</a>
+          </div>
+          <div class="home-card-image-div">
+            <%= image_tag "http://lorempixel.com/1080/720/city/2/", class: 'img-right' %>
+          </div>
         </div>
-        <%= image_tag "Bidouroch.png", class: 'img-right' %>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <div class="home-card">
-        <%= image_tag "Bozogc.png", class: 'img-left' %>
-        <div class="home-desc">
-          <h2><%= @teddy_3.name %></h2>
-          <p>was sent <span>10 months ago</span> by <span><%= @teddy_3.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
-          <p>He is now visiting <span><%= @teddy_3.stages.last.adress %></span>! He's been travelling with his good friend <span><%= @teddy_3.stages.last.backpacker_name %></span>.</p>
-          <div class="btn btn-primary">Follow his adventure!</div>
-        </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <h2><%= @teddy_1.name %></h2>
+        <div class="home-card">
+          <div class="home-card-image-div">
+            <%= image_tag "http://lorempixel.com/1080/720/city/3/", class: 'img-left' %>
+          </div>
+          <div class="home-desc">
+            <i class="fa fa-quote-left" aria-hidden="true"></i>
+            <p><span><%= @teddy_3.name %></span> was sent <span>10 months ago</span> by <span><%= @teddy_3.user.name %></span> from <span>Aéroport Charles-de-Gaulle</span>.</p>
+            <p>He is now visiting <span><%= @teddy_3.stages.last.adress %></span>! He's been travelling with his good friend <span><%= @teddy_3.stages.last.backpacker_name %></span>.</p>
+            <i class="fa fa-quote-right" aria-hidden="true"></i>
+            <a href="<%= teddy_path(@teddy_3) %>" class="btn btn-primary hvr-grow">Follow his adventure!</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
 <div class="how-it-works">
   <div class="container text-center">
     <h1>How does it work?</h1>

@@ -11,8 +11,9 @@ class PagesController < ApplicationController
       marker.picture({
                   :url => ActionController::Base.helpers.asset_path("teddypin.png"),
                   :width   => 34,
-                  :height  => 48
+                  :height  => 48,
                  })
+      marker.class()
       marker.infowindow "<img src='http://lorempixel.com/200/200/cats' class='avatar-large'/>
             <br>
             <p>#{stage.teddy.name} is in #{stage.adress}!</p>
