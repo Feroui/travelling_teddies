@@ -1,27 +1,31 @@
 
 <div class="text-center">
-  <ul class="links-registration">
+  <div class="links-registration">
+    <div>
+    <%= link_to omniauth_authorize_path(resource_name, :facebook), class: "btn btn-default change-link-facebook" do %>
+       <i class="fa fa-facebook-square" aria-hidden="true"></i> Sign in with <%= OmniAuth::Utils.camelize(:facebook) %>
+    <% end %>
+    </div>
     <%- if controller_name != 'sessions' %>
-      <li> <%= link_to "Log in", new_session_path(resource_name) %><br /></li>
-    <% end -%>
+       <%= link_to "Log in", new_session_path(resource_name), class: "btn btn-default" %>
+      <% end -%>
+
     <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-      <li> <%= link_to "Sign up", new_registration_path(resource_name) %><br /></li>
+
+     <%= link_to "Sign up", new_registration_path(resource_name), class: "btn btn-default" %>
     <% end -%>
 
     <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-      <li> <%= link_to "Forgot your password?", new_password_path(resource_name) %><br /></li>
+     <%= link_to "Forgot your password?", new_password_path(resource_name) %>
     <% end -%>
 
     <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-      <li> <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br /></li>
+     <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %>
     <% end -%>
 
     <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-     <li> <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br /> </li>
+    <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
     <% end -%>
-     <li><%= link_to omniauth_authorize_path(resource_name, :facebook), class: "change-link-facebook" do %>
-       <i class="fa fa-facebook-square" aria-hidden="true"></i> Sign in with <%= OmniAuth::Utils.camelize(:facebook) %>
-    <% end %></li>
-  </ul>
+  </div>
 
 </div>
