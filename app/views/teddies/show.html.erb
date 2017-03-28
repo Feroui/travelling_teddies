@@ -3,15 +3,35 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <div class="show-teddies-row-top center-items">
         <div class="show-teddies-row-top-id">
-            <% if @teddy.photos? %>
-              <%= cl_image_tag @teddy.photos.first.path, class: "avatar" %>
-            <% else %>
-               <img src="http://lorempixel.com/80/80/cats/1"/>
-            <% end %>
+            <div class="show-pic-name">
+              <% if @teddy.photos? %>
+                <%= cl_image_tag @teddy.photos.first.path, class: "avatar", width: 60, height: 60, crop: :fill %>
+              <% else %>
+                 <%= image_tag "teddy.png"%>
+              <% end %>
               <h1><%= @teddy.name %></h1>
-            <p><span><%= @teddy.name%></span> was sent by <span><%= @teddy.stages.first.backpacker_name %></span>. He started at <span><%= @teddy.stages.first.adress %></span> and now he's in <span><%= @teddy.stages.last.adress %></span> ! Check out how he arrived here !</p>
-            <%= link_to teddy_followers_path(@teddy), class: "btn btn-primary", method: :post do %>
-              Follow <%= @teddy.name %> !
+            </div>
+            <div class="show-specs">
+              <div class="show-user">
+                <% if @teddy.photos? %>
+                <%= cl_image_tag @teddy.user.photos.first.path, class: "avatar-bordered", width: 40, height: 40, crop: :fill %>
+                <% else %>
+                   <%= image_tag "user.svg"%>
+                <% end %>
+                <p><%= @teddy.user.name %></p>
+              </div>
+              <div class="show-start">
+                <%= image_tag "flag.svg" %>
+                <p><%= @teddy.origin %></p>
+              </div>
+              <div class="show-now">
+                <%= image_tag "pin.png" %>
+                <p><%= @teddy.stages.last.adress %></p>
+              </div>
+            </div>
+            <%= link_to teddy_followers_path(@teddy), class: "follow-button", method: :post do %>
+              <%= image_tag "bear_paw.png" %>
+              <p>Follow <%= @teddy.name %> !</p>
             <% end %>
         </div>
       </div>
@@ -23,7 +43,6 @@
     </div>
   </div>
   <div class="row"> <!-- TRIP TREE -->
-    <div class="empty-stage-menu"></div>
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <div class="stage-menu">
 
@@ -32,14 +51,14 @@
               <% if stage.id.even?  %>
                 <div class="card-teddies-show">
                   <div class="car-teddies-title">
-                    <div class="teddies-stages-title-menu"><img src="http://lorempixel.com/300/150/nature" /></div>
+                    <div class="teddies-stages-title-menu"><%= cl_image_tag stage.photos.first.path %></div>
                     <div class="barre-horrizontale"></div>
                     <div class="black-spot"></div>
                   </div>
                   <div class="card-teddies-stage-description-photo">
                     <div class="card-teddies-stage-description-photo-details">
                       <p><strong> <%= stage.adress %> </strong></p>
-                      <p><strong> <%= stage.created_at %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p><%= link_to "see more", teddy_stage_path(@teddy, stage) %>
+                      <p><strong> <%= stage.date %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p><%= link_to "see more", teddy_stage_path(@teddy, stage) %>
                     </div>
                     <div class="card-teddies-stage-description-photo-empty"></div>
                   </div>
@@ -60,14 +79,14 @@
                   <div class="car-teddies-title">
                     <div class="black-spot"></div>
                     <div class="barre-horrizontale"></div>
-                    <div class="teddies-stages-title-menu"><img src="http://lorempixel.com/300/150/nature" />
+                    <div class="teddies-stages-title-menu"><%= cl_image_tag stage.photos.first.path %>
                   </div>
                   </div>
                   <div class="card-teddies-stage-description-photo">
                     <div class="card-teddies-stage-description-photo-empty"></div>
                     <div class="card-teddies-stage-description-photo-details">
                       <p><strong> <%= stage.adress %> </strong></p>
-                      <p><strong> <%= stage.created_at %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p> <%= link_to "see more", teddy_stage_path(@teddy, stage) %>
+                      <p><strong> <%= stage.date %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p> <%= link_to "see more", teddy_stage_path(@teddy, stage) %>
                     </div>
                   </div>
                 </div>

@@ -1,9 +1,13 @@
 .show-teddies-row-top{
-  margin: 15px 0px;
+  margin-top: 30px;
 }
+
 .show-teddies-row-top-id {
+  border-radius: 5px 5px 0px 0px;
+  background-color: rgb(240,240,240);
+  padding: 10px;
   display: flex;
-  align-items: bottom;
+  align-items: center;
   justify-content: space-between;
   img {
     border-radius: 50%;
@@ -14,45 +18,81 @@
   font-size: 50px;
   font-weight: bolder;
   margin: 10px;
-  }
-  p {
-
-  }
+  };
 }
 
-.show-teddies-row-top-center {
+.show-pic-name {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
+.show-specs {
+  flex: 0.6 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-weight: lighter;
+  p {
+    margin: 0px;
+  };
+  img {
+    height: 50px;
+    width: auto;
+  };
+}
+
+.follow-button {
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  background-color: white;
+  color: $brand-color;
+  img {
+    height: 40px;
+    width: auto;
+  };
+  p {
+    margin: 0px;
+  };
+}
+
+.follow-button:hover{
+  background-color: $brand-color;
+  text-decoration: none;
+  color: white;
+}
 
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
 }
-.empty-stage-menu {
-  height: 40px;
-}
+
 .stage-menu {
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
+
 .stage-menu-left {
   width: 49%;
 }
+
 .stage-menu-center {
   background-color: #ADAF83;
   width: 2px;
   margin: 0px -38px;
 }
+
 .stage-menu-right {
   width: 49%;
 }
+
 .card-teddies-show {
   width: 100%;
+  margin: 20px 0px;
 }
+
 .car-teddies-title {
   display: flex;
   align-items: center;
