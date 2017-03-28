@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users
   get 'dashboard', to: 'users#dashboard'
   get 'backpacker', to: 'teddies#backpacker'
+  get 'about', to: 'pages#about'
 
   resources :teddies do
     collection do
