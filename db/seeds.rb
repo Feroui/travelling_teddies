@@ -54,7 +54,7 @@ thomas.photos = [File.open(Rails.root.join('db/fixtures/images/user_thomas.jpg')
 puts "Creating Teddies..."
 teddy_bozo = Teddy.create!(
   name: "Bozo",
-  description: "Bozo is crative project from an great artist called Bob. Bozo has been sent travelling to communicate happiness and love. He's creating link between people all over the world. If one day you meet Bozo somewhere, it will be your lucky day",
+  description: "Bozo is crative project from an great artist called Bob. Bozo has been sent travelling to communicate happiness and love. He's creating links between people all over the world. If one day you meet Bozo somewhere, it will be your lucky day",
   user: bob,
   gender: "other"
   origin: "jamaïca"
@@ -113,45 +113,383 @@ teddy_potam = Teddy.create!(
 teddy_potam.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_potam.jpg'))]
   teddy_potam.save!
 
+puts "Creating Bozo's Stages"
+
+jamaïca = Stage.new(
+      date: Wed, 1 Mar 2017,
+      content: "",
+      backpacker_name: "Clément Fernon",
+      backpacker_description: "I'm travelling since 8 mounths in South America. I was working in a bank for 10 years in London when I realised that I was loosing my time in this crazy world. I will continue travelling few mounths and then I'd like to come back in London, work in an NGO and do yoga",
+      backpacker_origin: "Antony",
+      crush: "Cockpit Country is a beautiful park in center of Jamaïca, there are lovely trees and amazing animals",
+      backpacker_email: clement@gmail.com
+      adress: "Jamaïca",
+      teddy: teddy_bozo
+    )
+    jamaïca.save!
+jamaïca.photos = [File.open(Rails.root.join('db/fixtures/images/stage_jamaïca.jpg'))]
+    jamaïca.save!
+bogota = Stage.new(
+      date: Mon, 6 Mar 2017,
+      content: "",
+      backpacker_name: "Clément Fernon",
+      backpacker_description: "I'm travelling since 8 mounths in South America. I was working in a bank for 10 years in London when I realised that I was loosing my time in this crazy world. I will continue travelling few mounths and then I'd like to come back in London, work in an NGO and do yoga",
+      backpacker_origin: "Antony",
+      crush: "Ajiaco is a really tasty chicken soup typical from Colombia",
+      backpacker_email: clement@gmail.com
+      adress: "Bogota, Colombia",
+      teddy: teddy_bozo
+    )
+    bogota.save!
+cali = Stage.new(
+      date: Sun, 12 Mar 2017,
+      content: "",
+      backpacker_name: "Quentin Gondat",
+      backpacker_description: "Few weeks off, I love trekking and Hiking, I have been 7 times in South America and I don't get bored. Thanks to Bozo to share a part of the trip with me and thanks to Clement I met in Bogota, we had an amazing night there!",
+      backpacker_origin: "Bordeau",
+      crush: "Salsa ! definitly The Thing to see in Cali !",
+      backpacker_email: quentin@gmail.com
+      adress: "Cali, Colombia",
+      teddy: teddy_bozo
+    )
+    cali.save!
+cuzco = Stage.new(
+      date: Sun, 19 Mar 2017,
+      content: "",
+      backpacker_name: "Quentin Gondat",
+      backpacker_description: "Few weeks off, I love trekking and Hiking, I have been 7 times in South America and I don't get bored. Thanks to Bozo to share a part of the trip with me and thanks to Clement I met in Bogota, we had an amazing night there!",
+      backpacker_origin: "Bordeau",
+      crush: "Machu Picchu",
+      backpacker_email: quentin@gmail.com
+      adress: "Cuzco, Peru",
+      teddy: teddy_bozo
+    )
+    cuzco.save!
+
+puts "Creating Choupi's Stages"
+
+bruxelles = Stage.new(
+  date: Wed, 1 Mar 2017,
+  content: "",
+  backpacker_name: "Jimmy",
+  backpacker_description: "",
+  backpacker_origin: "Bruxelles",
+  crush: "Waffles & Speculos, so tasty!",
+  backpacker_email: jimmy@gmail.com
+  adress: "Bruxelles",
+  teddy: teddy_choupi
+)
+bruxelles.save!
+
+berlin = Stage.new(
+  date: Wed, 8 Mar 2017,
+  content: "",
+  backpacker_name: "Jimmy",
+  backpacker_description: "",
+  backpacker_origin: "Berlin, Germany",
+  crush: "Waffles & Speculos, so tasty!",
+  backpacker_email: jimmy@gmail.com
+  adress: "Berlin, Germany",
+  teddy: teddy_choupi
+)
+berlin.save!
+
+warsaw = Stage.new(
+  date: Wed, 15 Mar 2017,
+  content: "",
+  backpacker_name: "Henning",
+  backpacker_description: "",
+  backpacker_origin: "Bruxelles",
+  crush: "Waffles & Speculos, so tasty!",
+  backpacker_email: henning@gmail.com
+  adress: "Warsaw, Poland",
+  teddy: teddy_choupi
+)
+warsaw.save!
+
+praga = Stage.new(
+  date: Wed, 22 Mar 2017,
+  content: "",
+  backpacker_name: "Henning",
+  backpacker_description: "",
+  backpacker_origin: "Bruxelles",
+  crush: "Waffles & Speculos, so tasty!",
+  backpacker_email: henning@gmail.com
+  adress: "Praga, Czech Republic",
+  teddy: teddy_choupi
+)
+praga.save!
+
+puts "Creating Pinou's Stages"
+
+jouy = Stage.new(
+  date: Wed, 15 Fev 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Alain",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Paris",
+  crush: "HEC - bat H, Beautiful building made by the famous architect Martin Duplantier",
+  backpacker_email: alain@gmail.com
+  adress: "Jouy-en-Josas, France",
+  teddy: teddy_pinou
+)
+jouy.save!
+cdg = Stage.new(
+  date: Wed, 22 Fev 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Alain",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Paris",
+  crush: "XXXXXXX",
+  backpacker_email: alain@gmail.com
+  adress: "Aeroport Charles de Gaulle, France",
+  teddy: teddy_pinou
+)
+cdg.save!
+sf = Stage.new(
+  date: Wed, 1 Mar 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Alain",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Paris",
+  crush: "Bridge",
+  backpacker_email: alain@gmail.com
+  adress: "San Francisco, USA",
+  teddy: teddy_pinou
+)
+sf.save!
+la = Stage.new(
+  date: Wed, 8 Mar 2017,
+  content: "XXXXXXX",
+  backpacker_name: "John",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Montreal, Canada",
+  crush: "XXXXXXX",
+  backpacker_email: john@gmail.com
+  adress: "Los Angeles, USA",
+  teddy: teddy_pinou
+)
+la.save!
+no = Stage.new(
+  date: Wed, 15 Mar 2017,
+  content: "XXXXXXX",
+  backpacker_name: "John",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Montreal, Canada",
+  crush: "XXXXXXX",
+  backpacker_email: john@gmail.com
+  adress: "New Orleans, USA",
+  teddy: teddy_pinou
+)
+no.save!
+
+puts "Creating Bayon's Stages"
+
+siemreap = Stage.new(
+  date: Wed, 15 Fev 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Thomas",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Paris",
+  crush: "XXXXXXX",
+  backpacker_email: thomas@gmail.com
+  adress: "Siem Reap, Cambodia",
+  teddy: teddy_bayon
+)
+siemreap.save!
+phnompenh = Stage.new(
+  date: Wed, 22 Fev 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Thomas",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Paris",
+  crush: "XXXXXXX",
+  backpacker_email: thomas@gmail.com
+  adress: "Phnom Penh, Cambodia",
+  teddy: teddy_bayon
+)
+phnompenh.save!
+
+hcm = Stage.new(
+  date: Wed, 1 Mar 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Boris",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Marseilles",
+  crush: "Poste Eiffel",
+  backpacker_email: boris@gmail.com
+  adress: "Ho Chi Minh, Vietnam",
+  teddy: teddy_bayon
+)
+hcm.save!
+
+hoian = Stage.new(
+  date: Wed, 8 Mar 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Boris",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Marseilles",
+  crush: "XXXXXXX",
+  backpacker_email: boris@gmail.com
+  adress: "Hoi An, Vietnam",
+  teddy: teddy_bayon
+)
+hoian.save!
+
+catba = Stage.new(
+  date: Wed, 15 Mar 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Martin",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "South Africa",
+  crush: "XXXXXXX",
+  backpacker_email: martin@gmail.com
+  adress: "Catba, Vietnam",
+  teddy: teddy_bayon
+)
+catba.save!
+sapa = Stage.new(
+  date: Wed, 22 Mar 2017,
+  content: "XXXXXXX",
+  backpacker_name: "Martin",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "South Africa",
+  crush: "Hmongs are very friendly !",
+  backpacker_email: martin@gmail.com
+  adress: "Sapa, Vietnam",
+  teddy: teddy_bayon
+)
+sapa.save!
+
+puts "Creating Cousteau's Stages"
+
+marquises = Stage.new(
+  date: Mer, 6 Jan 2016,
+  content: "XXXXXXX",
+  backpacker_name: "Jordan",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Bretagne, France",
+  crush: "XXXXXXX",
+  backpacker_email: jordan@gmail.com
+  adress: "Marquises, Polynésie Française",
+  teddy: teddy_cousteau
+)
+marquises.save!
+tahiti = Stage.new(
+  date: Mer, 17 Jan 2016,
+  content: "XXXXXXXX",
+  backpacker_name: "Jordan",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Bretagne, France",
+  crush: "XXXXXXX",
+  backpacker_email: jordan@gmail.com
+  adress: "Papeete, Polynésie Française",
+  teddy: teddy_cousteau
+)
+tahiti.save!
+ushuaia = Stage.new(
+  date: Wed, 23 Mar 2016,
+  content: "XXXXXXX",
+  backpacker_name: "Jordan",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Bretagne, France",
+  crush: "XXXXXXX",
+  backpacker_email: jordan@gmail.com
+  adress: "Ushuaia, Argentina",
+  teddy: teddy_cousteau
+)
+ushuaia.save!
+alexander = Stage.new(
+  date: Wed, 8 Jun 2016,
+  content: "",
+  backpacker_name: "Jordan",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Bretagne, France",
+  crush: "XXXXXXX",
+  backpacker_email: jordan@gmail.com
+  adress: "alexander island",
+  teddy: teddy_cousteau
+)
+alexander.save!
+pde = Stage.new(
+  date: Wed, 16 Nov 2016,
+  content: "",
+  backpacker_name: "Jordan",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Bretagne, France",
+  crush: "XXXXXXX",
+  backpacker_email: jordan@gmail.com
+  adress: "Punta Del Este, Urugay",
+  teddy: teddy_cousteau
+)
+pde.save!
+antigua = Stage.new(
+  date: Wed, 15 Fev 2017,
+  content: "",
+  backpacker_name: "Jordan",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Bretagne, France",
+  crush: "XXXXXXX",
+  backpacker_email: jordan@gmail.com
+  adress: "Antigua",
+  teddy: teddy_cousteau
+)
+antigua.save!
+
+puts "Creating Potam's Stages"
+
+paris = Stage.new(
+  date: Wed, 15 Fev 2017,
+  content: "",
+  backpacker_name: "Helo",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Ville d'Avray, France",
+  crush: "XXXXXXX",
+  backpacker_email: helo@gmail.com
+  adress: "Paris, France",
+  teddy: teddy_potam
+)
+paris.save!
+
+paris = Stage.new(
+  date: Wed, 15 Fev 2017,
+  content: "",
+  backpacker_name: "Helo",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Ville d'Avray, France",
+  crush: "XXXXXXX",
+  backpacker_email: helo@gmail.com
+  adress: "Paris, France",
+  teddy: teddy_potam
+)
+paris.save!
+
+barcelone = Stage.new(
+  date: Wed, 15 Fev 2017,
+  content: "",
+  backpacker_name: "Robert Wong",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Melun, France",
+  crush: "XXXXXXX",
+  backpacker_email: robert@gmail.com
+  adress: "barcelona, Spain",
+  teddy: teddy_potam
+)
+barcelone.save!
+
+marrakech = Stage.new(
+  date: Wed, 15 Fev 2017,
+  content: "",
+  backpacker_name: "Robert Wong",
+  backpacker_description: "XXXXXXX",
+  backpacker_origin: "Melun, France",
+  crush: "XXXXXXX",
+  backpacker_email: robert@gmail.com
+  adress: "marrakech, Marocco",
+  teddy: teddy_potam
+)
+marrakech.save!
+
 puts "Finished!"
 
-
-
-(1..10).to_a.each do |i|
-
-  name = Faker::Pokemon.name
-  mail = name.parameterize + i.to_s + "@gmail.com"
-  us = User.new(
-    name: name,
-    email: mail,
-    password: "123456"
-  )
-  us.photos = [File.open(Rails.root.join('db/fixtures/images/user_bob.jpg'))]
-  us.save!
-
-  ted = Teddy.new(
-    name: Faker::LordOfTheRings.character + i.to_s,
-    description: Faker::Lorem.paragraph,
-    user: us,
-    gender: "male",
-    origin: "Paris",
-    personality: "cudly"
-
-  )
-  ted.save!
-  10.times do
-    st = Stage.new(
-      date: Faker::Date.between(30.days.ago, Date.today),
-      content: Faker::Lorem.paragraph,
-      backpacker_name: Faker::Superhero.name,
-      backpacker_description: Faker::Superhero.power,
-      backpacker_origin: Faker::Address.country,
-      crush: Faker::Lorem.paragraph,
-      backpacker_email: coucou@coucou.com
-      adress: Faker::Address.country,
-      teddy: ted
-    )
-    st.save!
-  end
-end
 
