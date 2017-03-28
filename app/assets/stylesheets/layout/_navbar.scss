@@ -178,3 +178,19 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+.button-backpacker-navbar {
+  margin-top: 45px;
+  display: flex;
+  justify-content: text-center;
+  background-color: #E5373C;
+  border: none;
+  margin: 2px;
+  font-weight: bold;
+  a {
+    color: white;
+    font-size: 15px;
+  }
+}
+ .button-backpacker-navbar:hover {
+    background-color: #FF4850;
+  }

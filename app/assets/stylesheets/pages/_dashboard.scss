@@ -1,16 +1,19 @@
 .followed-teddies-card {
   margin-top: 20px;
-  border: solid;
-  border-color: #F2F2F2;
-  border-radius: 10px;
+  padding: 5px 0px;
+  background-color: #E4E4E4;
+  border-radius: 5px;
   display: flex;
-
+  cursor: pointer;
 }
-.image-follow {
-  border-radius: 50%
+.followed-teddies-card:hover {
+  background-color: #B2B2B2;
 }
 
 .button-following {
+  margin-top: 45px;
+  display: flex;
+  justify-content: text-center;
   background-color: #E5373C;
   border: none;
   margin: 2px;
@@ -18,41 +21,47 @@
     color: white;
     font-size: 15px;
   }
-  a:hover {
-
+}
+ .button-following:hover {
+    background-color: #FF4850;
   }
-}
 
-.followed-teddies-photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
+
 .followed-teddies-info{
   margin-bottom: 30px;
+  cursor: pointer;
 }
 .dasboard-my-teddy-card {
-  border: solid;
-  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #D9DEA8;
+  border-radius: 5px;
   padding: 5px;
+  height: 398px;
+  padding: 20px 0px;
   .btn {
     margin: 10px;
   }
 }
-.followed-teddies-actions{
-      display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 26px;
+
+.followed-teddies-actions {
+  display: flex;
+  margin-top: 45px;
+  cursor: pointer;
 }
-.followed-teddies-actions-1 {
-  margin: 2px
-}
-.followed-teddies-actions-2 {
-  margin: 2px;
-}
+
 .bouton-dashboard-create-teddy {
   color: white;
+}
+.image-teddy-dashboard {
+  border-radius: 5px;
+  height: 133px;
+}
+.link-to-stage-teddy-dashboard {
+  color: black;
+}
+.link-to-stage-teddy-dashboard:hover {
+  color: black;
 }
