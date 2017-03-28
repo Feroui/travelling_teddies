@@ -8,7 +8,6 @@ class User < ApplicationRecord
   has_many :followers
   validates :email, presence: true, uniqueness: true
   has_attachments :photos
-  after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -30,11 +29,4 @@ class User < ApplicationRecord
 
     return user
   end
-
-  private
-
-  def send_welcome_email
-    UserMailer.welcome(self).deliver_now
-  end
-
 end

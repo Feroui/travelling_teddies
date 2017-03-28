@@ -1,5 +1,6 @@
 class TeddiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :validate_code, :backpacker]
+  after_create :send_welcome_email
 
   def index
     @teddies_all = policy_scope(Teddy).order(created_at: :desc)
@@ -111,4 +112,7 @@ class TeddiesController < ApplicationController
     @user = current_user
   end
 
+  def send_welcome_email
+    UserMailer.welcome(self).deliver_now
+  end
 end
