@@ -4,7 +4,7 @@
   <% content_for(:after_js) do %>
     <%= javascript_tag do %>
       $(document).ready(function() {
-        $('.authentification-form').html("<%= j render 'authentification-form' %>");
+        $('.authentification-form').html("<%= j render 'teddies/authentification-form' %>");
       });
     <% end %>
   <% end %>

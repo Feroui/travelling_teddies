@@ -1,0 +1,4 @@
+meta_title: "Travelling Teddies - Experience a worldtour"
+meta_description: "Travel through the eyes of an adorable teddy"
+meta_image: "cover.jpg" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account" # required for Twitter Cards
