@@ -1,29 +1,21 @@
-  <div class="container-without-footer">
+<div class="container-without-footer" id="index-container">
   <div class="container-fluid">
     <div class="row">
       <div class="col-xs-12 col-sm-4  ">
-        <div class="wider-container">
+        <div class="wider-container nopadding text-center">
           <% @teddies.each do |teddy| %>
           <div class="profile-card">
-          <a class="card-link" href=<%=teddy_path(teddy)%> ></a>
-            <div class="profile-header text-center">
-              <h2><strong><%=teddy.name%></strong></h2>
-            </div>
+            <a class="card-link" href=<%=teddy_path(teddy)%> ></a>
             <div class="profilepic">
               <% if teddy.photos? %>
-                <%= cl_image_tag teddy.photos.last.path, width: 296, height: 200, crop: :fill %>
+                <%= cl_image_tag teddy.photos.last.path, width: 350, height: 200, crop: :fill %>
               <% end %>
             </div>
             <div class="profile-footer">
-              <div class="characters">
-                <p>Gender : <strong>Male</strong></p>
-              </div>
-              <div class="characters">
-                <p>Personality : <strong>Cudly</strong></p>
-              </div>
-              <div class="characters">
-                <p>Origin :  <strong><%=teddy.stages.first.adress%></strong></p>
-              </div>
+              <h2><strong><%=teddy.name%></strong></h2>
+                <p class="index-desc">Male, cudly</p>
+                <p class="index-origin">From : <%=teddy.stages.first.adress%></p>
+                <div class="index-followers"><p><%=teddy.followers.count%> <%=image_tag "bear_paw.png"%></p></div>
             </div>
           </div>
           <%end%>

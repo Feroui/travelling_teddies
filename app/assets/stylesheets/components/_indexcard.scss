@@ -1,60 +1,55 @@
-
 .profile-card {
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 350px;
   box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.2);
-  margin-bottom: 80px;
-  border-radius: 10px;
-  border: 2px solid #a8b47e;
-  margin-left: 40px;
+  border-radius: 5px;
   position: relative;
-}
-
-.profile-header {
-  height: 70px;
-  background-color: #a8b47e;
-  position: relative;
-    h2 {
-      position: absolute;
-      bottom: 8px;
-      left: 10px;
-      right: 10px;
-    }
+  margin: 15px auto;
+  background-color: white;
+  text-align: left;
 }
 
 .profilepic {
   background-image: url("profilepic.jpg");
   background-size: cover;
   height: 200px;
+  border-radius: 5px 5px 0px 0px;
+  img {
+    border-radius: 5px 5px 0px 0px;
+  }
 }
 
 .profile-footer{
   height: 130px;
-
-    .characters {
-      margin-left: 30px;
-      margin-right: 30px;
-      margin-top: 10px;
+  padding: 10px;
+  position:relative;
+    h2 {
+      margin: 0px;
+    };
+    p {
+      margin: 0px;
     }
 }
 
+.index-desc {
+  font-weight: bolder;
+  color: $gray;
+}
 
+.index-origin {
+  font-weight: lighter;
+}
 
-
-
-
-
-
-
-
-.card {
-  height: 400px;
-  width: 300px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
-  color: white;
-  position: relative;
-  margin-bottom: 50px;
+.index-followers {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 10px;
+  color: grey;
+  img {
+    width: 20px;
+    height: auto;
+  }
 }
 
 .card-link {
@@ -66,10 +61,9 @@
   z-index:2;
   background: black;
   opacity: 0;
-  border: 2px solid #a8b47e;
-  border-radius: 10px;
-
+  border-radius: 5px;
 }
+
 .card-link:hover{
   opacity: 0.1;
   border: 2px solid rgba(174,175,122, 0.1);
