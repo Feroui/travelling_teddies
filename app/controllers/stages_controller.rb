@@ -30,8 +30,10 @@ class StagesController < ApplicationController
         format.js
       end
     else
+      puts "*****************************************************"
+      p @stage.errors.messages
       respond_to do |format|
-        format.html {render 'stage-form' }
+        format.html {render 'teddies/backpacker' }
         format.js
       end
     end
@@ -54,6 +56,6 @@ private
 
   def stage_params
     params.require(:stage).permit(:backpacker_name, :backpacker_description, :date,
-      :content, :adress, :backpacker_origin, :backpacker_email)
+      :content, :adress, :backpacker_origin, :backpacker_email, :crush, photos: [])
   end
 end

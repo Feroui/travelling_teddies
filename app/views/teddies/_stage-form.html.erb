@@ -1,7 +1,7 @@
 <h1>Write your adventure with <%=@teddy.name%></h1>
 
 <div id="inputs">
-  <%= simple_form_for([teddy, stage]) do |f| %>
+  <%= simple_form_for([teddy, stage], remote: true) do |f| %>
     <div id= "first-part">
       <h2>First, tell us more about you</h2>
       <%= f.input :backpacker_name, placeholder: "Your name", label: false %>
