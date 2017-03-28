@@ -55,12 +55,12 @@
                     <div class="barre-horrizontale"></div>
                     <div class="black-spot"></div>
                   </div>
-                  <div class="card-teddies-stage-description-photo">
-                    <div class="card-teddies-stage-description-photo-details">
+                  <div class="card-teddies-stage-description">
+                    <div class="card-teddies-stage-description-details">
                       <p><strong> <%= stage.adress %> </strong></p>
                       <p><strong> <%= stage.date %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p><%= link_to "see more", teddy_stage_path(@teddy, stage) %>
                     </div>
-                    <div class="card-teddies-stage-description-photo-empty"></div>
+                    <div class="card-teddies-stage-description-empty"></div>
                   </div>
 
                 </div>
@@ -82,11 +82,11 @@
                     <div class="teddies-stages-title-menu"><%= cl_image_tag stage.photos.first.path %>
                   </div>
                   </div>
-                  <div class="card-teddies-stage-description-photo">
-                    <div class="card-teddies-stage-description-photo-empty"></div>
-                    <div class="card-teddies-stage-description-photo-details">
+                  <div class="card-teddies-stage-description">
+                    <div class="card-teddies-stage-description-empty"></div>
+                    <div class="card-teddies-stage-description-details">
+                      <p><strong> <%= stage.date %></strong></p>
                       <p><strong> <%= stage.adress %> </strong></p>
-                      <p><strong> <%= stage.date %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p> <%= link_to "see more", teddy_stage_path(@teddy, stage) %>
                     </div>
                   </div>
                 </div>

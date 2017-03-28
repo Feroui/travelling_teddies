@@ -99,9 +99,10 @@
 }
 .teddies-stages-title-menu{
   width: 100%;
+  border-radius: 5px 5px 0px 0px;
   img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 5px 5px 0px 0px;
   }
 }
 .barre-horrizontale {
@@ -120,12 +121,15 @@
 .empty-div-meny {
   height: 130px;
 }
-.card-teddies-stage-description-photo {
+
+.card-teddies-stage-description {
   display: flex;
 }
-.card-teddies-stage-description-photo-empty {
-  width: 29%;
+.card-teddies-stage-description-empty {
+  width: 32%;
 }
-.card-teddies-stage-description-photo-details {
-  width: 70%
+.card-teddies-stage-description-details {
+  width: 100%;
+  background-color: rgb(240,240,240);
+  border-radius: 0px 0px 5px 5px;
 }
