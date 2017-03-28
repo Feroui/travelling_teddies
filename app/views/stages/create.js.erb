@@ -1,0 +1,18 @@
+<% if @stage.errors.any? %>
+$('.stage-form').html("<%= j render 'teddies/stage-form', teddy: @teddy, stage: @stage %>").slideDown();
+
+$(document).ready(function () {
+    $('#first-part').fadeIn(1000).removeClass('hidden');
+    $('#first-part').addClass('show')
+
+
+  $('#second-part').removeClass('hide');
+  $('#second-part').addClass('show');
+
+  $('#third-part').removeClass('hide');
+  $('#third-part').addClass('show');
+});
+
+<% else %>
+  alert("Wrong key, please try again.")
+<%end%>
