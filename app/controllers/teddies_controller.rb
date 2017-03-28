@@ -88,6 +88,8 @@ class TeddiesController < ApplicationController
 
   end
 
+  # jdklsmflkqdsf
+
   def validate_code
     @teddy = Teddy.find_by code: params[:code]
     @stage = Stage.new
