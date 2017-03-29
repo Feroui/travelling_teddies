@@ -131,7 +131,7 @@
           </div>
           <div class="home-desc">
             <i class="fa fa-quote-left" aria-hidden="true"></i>
-            <p><span><%= @teddy_1.name %></span> was sent <span>10 months ago</span> by <span><%= @teddy_1.user.name %></span> from <span><%= @teddy_1 %></span>.</p>
+            <p><span><%= @teddy_1.name %></span> was sent <span>10 months ago</span> by <span><%= @teddy_1.user.name %></span> from <span><%= @teddy_1.origin %></span>.</p>
             <p>He is now visiting <span><%= @teddy_1.stages.last.adress %></span>! He's been travelling with his good friend <span><%= @teddy_1.stages.last.backpacker_name %></span>.</p>
             <i class="fa fa-quote-right" aria-hidden="true"></i>
             <a href="<%= teddy_path(@teddy_1) %>" class="btn btn-primary hvr-grow">Follow his adventure!</a>
