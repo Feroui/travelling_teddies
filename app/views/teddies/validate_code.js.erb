@@ -3,17 +3,36 @@ $('.authentification-form').hide()
 $('.stage-form').html("<%= j render 'stage-form', teddy: @teddy, stage: @stage %>").slideDown();
 
 $(document).ready(function () {
-    $('#first-part').fadeIn(1000).removeClass('hidden');
+    $('#first-part').fadeIn(1000).removeClass('hide');
 });
 
 $('.first-next-btn').on('click', function(event) {
-  $('#first-part').toggleClass('hide');
-  $('#second-part').toggleClass('show');
+  $('#first-part').removeClass('show');
+  $('#first-part').addClass('hide');
+  $('#second-part').removeClass('hide');
+  $('#second-part').addClass('show');
+});
+
+$('.first-back-btn').on('click', function(event) {
+  $('#first-part').removeClass('hide');
+  $('#first-part').addClass('show');
+  $('#second-part').removeClass('show');
+  $('#second-part').addClass('hide');
+
 });
 
 $('.second-next-btn').on('click', function(event) {
   $('#second-part').removeClass('show');
-  $('#third-part').toggleClass('show');
+  $('#second-part').addClass('hide');
+  $('#third-part').removeClass('hide');
+  $('#third-part').addClass('show');
+});
+
+$('.second-back-btn').on('click', function(event) {
+  $('#second-part').removeClass('hide');
+  $('#second-part').addClass('show');
+  $('#third-part').removeClass('show');
+  $('#third-part').addClass('hide');
 });
 
 <% else %>

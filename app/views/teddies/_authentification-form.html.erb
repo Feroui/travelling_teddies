@@ -1,6 +1,5 @@
-<h1>Welcome on travelling teddies !</h1>
   <div class="auth">
-    <p>Enter the key you were given</p>
+    <p id= "enter">Enter the Teddy's key you were given</p>
     <%= form_tag validate_code_teddies_path, remote: true do %>
     <%= text_field_tag :code %>
     <div>

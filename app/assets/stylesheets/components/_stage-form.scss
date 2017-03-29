@@ -5,14 +5,13 @@
     }
 }
 
-.first-next-btn {
+.arrow {
   color: #AEAF7A;
   opacity: 0.8;
   font-size: 40px;
-  margin-top: 30px;
 }
 
-.first-next-btn:hover{
+.arrow:hover{
   color: #DC3737;
   opacity: 0.8;
 }
@@ -23,20 +22,9 @@
   }
 }
 
-.second-next-btn {
-  color: #AEAF7A;
-  opacity: 0.8;
-  font-size: 40px;
-  margin-top: 30px;
-}
-
-.second-next-btn:hover{
-  color: #DC3737;
-  opacity: 0.8;
-}
 
 .datepicker {
-  margin-top: 30px;
+  margin: 30px auto;
 }
 
 #third-part {
@@ -61,6 +49,7 @@
   width: 500px;
   margin-top: -20px;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 
