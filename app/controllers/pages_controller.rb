@@ -1,3 +1,5 @@
+require "cloudinary"
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home, :about]
 
@@ -14,7 +16,7 @@ class PagesController < ApplicationController
                   :height  => 48,
                  })
       marker.class()
-      marker.infowindow "<img src='http://lorempixel.com/200/200/cats' class='avatar-large'/>
+      marker.infowindow "<img src='http://res.cloudinary.com/cfernon/image/upload/c_fill,h_160,w_160/#{stage.teddy.photos.first.path}' class='avatar-large'/>
             <br>
             <p>#{stage.teddy.name} is in #{stage.adress}!</p>
             <em><a href=\"#{teddy_path(stage.teddy)}\">See more</a></em>"

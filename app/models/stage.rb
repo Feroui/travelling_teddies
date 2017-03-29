@@ -12,5 +12,11 @@ class Stage < ApplicationRecord
 
   geocoded_by :adress
   after_validation :geocode, if: :adress_changed?
-
+  reverse_geocoded_by :latitude, :longitude do |obj,results|
+    if geo = results.first
+      obj.city    = geo.city
+      obj.country = geo.country
+    end
+  end
+  after_validation :reverse_geocode
 end

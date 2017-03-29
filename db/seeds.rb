@@ -74,7 +74,7 @@ teddy_choupi.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_choup
   teddy_choupi.save!
 teddy_bayon = Teddy.create!(
   name: "Bayon",
-  description: "Bayon is from Angkor's Temples, where a beautiful project existe since 20 years. A great association named 'école du Bayon' is teaching hundreds of child and teenager and young adult usefull skills to help them finding a job. They started as a primary school and the school is a reference in Cambodia for the quality of their student. Since the creation, the school helps more than a thousand people to escape misary", 
+  description: "Bayon is from Angkor's Temples, where a beautiful project existe since 20 years. A great association named 'école du Bayon' is teaching hundreds of child and teenager and young adult usefull skills to help them finding a job. They started as a primary school and the school is a reference in Cambodia for the quality of their student. Since the creation, the school helps more than a thousand people to escape misary",
   user: thomas,
   gender: "female",
   origin: "Siem Reap",

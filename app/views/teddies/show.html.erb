@@ -1,51 +1,67 @@
 <div class="container text-center">
-  <div class="row">
+  <div class="row"> <!--TEDDY PRESENTATION-->
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <div class="show-teddies-row-top center-items">
         <div class="show-teddies-row-top-id">
-          <ul class="list-inline">
-            <% if @teddy.photos? %>
-              <li><%= cl_image_tag @teddy.photos.first.path, class: "avatar" %></li>
-            <% else %>
-              <li> <img src="http://lorempixel.com/80/80/cats/1"/></li>
+            <div class="show-pic-name">
+              <% if @teddy.photos? %>
+                <%= cl_image_tag @teddy.photos.first.path, class: "avatar", width: 60, height: 60, crop: :fill %>
+              <% else %>
+                 <%= image_tag "teddy.png"%>
+              <% end %>
+              <h1><%= @teddy.name %></h1>
+            </div>
+            <div class="show-specs">
+              <div class="show-user">
+                <% if @teddy.photos? %>
+                <%= cl_image_tag @teddy.user.photos.first.path, class: "avatar-bordered", width: 40, height: 40, crop: :fill %>
+                <% else %>
+                   <%= image_tag "user.svg"%>
+                <% end %>
+                <p><%= @teddy.user.name %></p>
+              </div>
+              <div class="show-start">
+                <%= image_tag "flag.svg" %>
+                <p><%= @teddy.origin %></p>
+              </div>
+              <div class="show-now">
+                <%= image_tag "pin.png" %>
+                <p><%= @teddy.stages.last.adress %></p>
+              </div>
+            </div>
+            <%= link_to teddy_followers_path(@teddy), class: "follow-button", method: :post do %>
+              <%= image_tag "bear_paw.png" %>
+              <p>Follow <%= @teddy.name %> !</p>
             <% end %>
-              <li><h1><%= @teddy.name %></h1></li>
-          </ul>
-        </div>
-        <p> <strong><%= @teddy.name%></strong> was sent by <strong><%= @teddy.stages.first.backpacker_name %></strong>. He started at <strong><%= @teddy.stages.first.adress %></strong> and now he's in <strong><%= @teddy.stages.last.adress %></strong> ! Check out how he arrived here ! </p>
-        <div class="show-teddies-follow-button">
-          <%= link_to teddy_followers_path(@teddy), method: :post do %>
-            Follow <%= @teddy.name %> !
-          <% end %>
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row"> <!-- MAP -->
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <div id="map" style="width: 100%; height: 400px;"></div>
     </div>
   </div>
-  <div class="row">
-    <div class="empty-stage-menu"></div>
+  <div class="row"> <!-- TRIP TREE -->
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <div class="stage-menu">
 
           <div class="stage-menu-left">
-              <% @stages.reverse.each do |stage| %>
-              <% if stage.id.even?  %>
+              <% @stages.reverse.each_with_index do |stage, i| %>
+              <% if i.even?  %>
                 <div class="card-teddies-show">
                   <div class="car-teddies-title">
-                    <div class="teddies-stages-title-menu"><img src="http://lorempixel.com/300/150/nature" /></div>
+                    <div class="teddies-stages-title-menu"><%= cl_image_tag stage.photos.first.path %></div>
                     <div class="barre-horrizontale"></div>
                     <div class="black-spot"></div>
                   </div>
-                  <div class="card-teddies-stage-description-photo">
-                    <div class="card-teddies-stage-description-photo-details">
-                      <p><strong> <%= stage.adress %> </strong></p>
-                      <p><strong> <%= stage.created_at %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p><%= link_to "see more", teddy_stage_path(@teddy, stage) %>
+                  <div class="card-teddies-stage-description">
+                    <div class="card-teddies-stage-description-details">
+                      <p class="card-teddies-date"><%= stage.date.to_date.to_formatted_s(:long_ordinal) %></p>
+                      <p class="card-teddies-address text-left"><strong> <%= stage.adress %> </strong></p>
+                      <%= link_to "see more", teddy_stage_path(@teddy, stage), class: "card-teddies-link btn btn-primary" %>
                     </div>
-                    <div class="card-teddies-stage-description-photo-empty"></div>
+                    <div class="card-teddies-stage-description-empty"></div>
                   </div>
 
                 </div>
@@ -58,20 +74,27 @@
 
           <div class="stage-menu-right">
               <div class="empty-div-meny"></div>
-              <% @stages.reverse.each do |stage| %>
-              <% unless stage.id.even? %>
+              <% @stages.reverse.each_with_index do |stage, i| %>
+              <% unless i.even? %>
                 <div class="card-teddies-show">
                   <div class="car-teddies-title">
                     <div class="black-spot"></div>
                     <div class="barre-horrizontale"></div>
-                    <div class="teddies-stages-title-menu"><img src="http://lorempixel.com/300/150/nature" />
+                    <div class="teddies-stages-title-menu"><%= cl_image_tag stage.photos.first.path %>
                   </div>
                   </div>
-                  <div class="card-teddies-stage-description-photo">
-                    <div class="card-teddies-stage-description-photo-empty"></div>
-                    <div class="card-teddies-stage-description-photo-details">
-                      <p><strong> <%= stage.adress %> </strong></p>
-                      <p><strong> <%= stage.created_at %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p> <%= link_to "see more", teddy_stage_path(@teddy, stage) %>
+                  <div class="card-teddies-stage-description">
+                    <div class="card-teddies-stage-description-empty"></div>
+                    <div class="card-teddies-stage-description-details">
+                      <p class="card-teddies-date"><%= stage.date.to_date.to_formatted_s(:long_ordinal) %></p>
+                      <p class="card-teddies-address text-left">
+                        <% if stage.city.nil? %>
+                          <strong><%= stage.adress %></strong>
+                        <% else %>
+                          <strong><%= stage.city %>, <%= stage.country%></strong>
+                        <% end %>
+                      </p>
+                      <%= link_to "see more", teddy_stage_path(@teddy, stage), class: "card-teddies-link btn btn-primary" %>
                     </div>
                   </div>
                 </div>
@@ -92,16 +115,22 @@
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
         center: {lat: <%= @last_stage.latitude %>, lng: <%= @last_stage.longitude %>},
-        mapTypeId: google.maps.MapTypeId.TERRAIN
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        disableDefaultUI: true,
+        scrollwheel: false,
       });
 
-      var image = '<%= image_path 'teddypin.png' %>'
+      var image_last = '<%= image_path 'teddypin.png' %>'
+      var image_pin = '<%= image_path 'smallpin.png' %>'
       <% @stages.each do |stage| %>
         var marker = new google.maps.Marker({
         position: <%= raw( { lat: stage.latitude, lng: stage.longitude }.to_json) %>,
         map: map,
-        title: 'Hello World!',
-        icon: image
+        <% if stage == @stages.last %>
+        icon: image_last,
+        <% else %>
+        icon: image_pin,
+        <% end %>
         });
       <% end %>
 
@@ -121,6 +150,5 @@
     $(document).ready(function() {
       initMap()
     });
-
   <% end %>
 <% end %>

@@ -1,5 +1,6 @@
 require "rest-client"
 require "json"
+require 'uri'
 
 class StagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :create]
@@ -8,7 +9,16 @@ class StagesController < ApplicationController
 
   def show
     @teddy = Teddy.find(params[:teddy_id])
-    response = RestClient.get "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&indexpageids=1&exintro=&explaintext=&titles=Vientiane"
+    if @stage.city.nil?
+      country = @stage.country.encode('iso-8859-1')
+      urcountry = URI.escape country
+      url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&indexpageids=1&exintro=&explaintext=&titles=#{urcountry}"
+    else
+      city = @stage.city.encode('iso-8859-1')
+      urcity = URI.escape city
+      url = "https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts&indexpageids=1&exintro=&explaintext=&titles=#{urcity}"
+    end
+    response = RestClient.get url
     wiki = JSON.parse(response)
     pageid = wiki["query"]["pageids"][0]
     @desc = wiki["query"]["pages"][pageid]["extract"]
