@@ -6,6 +6,7 @@ class Stage < ApplicationRecord
   validates :backpacker_description, presence: true
   validates :adress, presence: true
   validates :backpacker_origin, presence: true
+  has_attachment :backpacker_photo, presence: true
 
   has_attachments :photos, presence: true
 

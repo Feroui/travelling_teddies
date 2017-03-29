@@ -1,10 +1,16 @@
-<h1>Welcome on travelling teddies !</h1>
   <div class="auth">
-    <p>Enter the key you were given</p>
+    <p id= "enter">Enter the Teddy's key you were given</p>
     <%= form_tag validate_code_teddies_path, remote: true do %>
     <%= text_field_tag :code %>
     <div>
-    <%= submit_tag 'Write your journey', class: 'btn btn-primary btn-submit' %>
+    <%= submit_tag 'Validate', class: 'btn btn-primary btn-submit' %>
+    </div>
+    <div class= "IdCheck hide">
+    <div>
+    <span id="backpacker-photo"></span>
+      <p>Are you <span id="backpacker-name"></span> ?</p>
+    </div>
+      <p><%=link_to "Yes", validate_code_teddies_path, class: "yes", remote: true %>   <%= link_to "No", validate_code_teddies_path, class: "no", remote: true %></p>
     </div>
     <% end %>
   </div>

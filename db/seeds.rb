@@ -107,7 +107,7 @@ puts "Creating Bozo's Stages"
 
 jamaïca = Stage.new(
       date: "Wed, 1 Mar 2017",
-      content: "Faker::Lorem.paragraph",
+      content: Faker::Lorem.paragraph,
       backpacker_name: "Clément Fernon",
       backpacker_description: "I'm travelling since 8 mounths in South America. I was working in a bank for 10 years in London when I realised that I was loosing my time in this crazy world. I will continue travelling few mounths and then I'd like to come back in London, work in an NGO and do yoga",
       backpacker_origin: "Antony",
@@ -117,14 +117,12 @@ jamaïca = Stage.new(
       teddy: teddy_bozo
     )
     jamaïca.save!
-jamaïca.photos = [File.open(Rails.root.join('db/fixtures/images/stage_jamaïca_1.jpg'))]
-    jamaïca.save!
-jamaïca.photos = [File.open(Rails.root.join('db/fixtures/images/stage_jamaïca_2.jpg'))]
+jamaïca.photos = [File.open(Rails.root.join('db/fixtures/images/stage_jamaïca_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_jamaïca_2.jpg'))]
     jamaïca.save!
 
 bogota = Stage.new(
       date: "Mon, 6 Mar 2017",
-      content: "Faker::Lorem.paragraph",
+      content: Faker::Lorem.paragraph,
       backpacker_name: "Clément Fernon",
       backpacker_description: "I'm travelling since 8 mounths in South America. I was working in a bank for 10 years in London when I realised that I was loosing my time in this crazy world. I will continue travelling few mounths and then I'd like to come back in London, work in an NGO and do yoga",
       backpacker_origin: "Antony",
@@ -134,21 +132,13 @@ bogota = Stage.new(
       teddy: teddy_bozo
     )
     bogota.save!
-bogota.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bogota_1.jpg'))]
-    bogota.save!
-bogota.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bogota_2.jpg'))]
-    bogota.save!
-bogota.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bogota_3.jpg'))]
-    bogota.save!
-bogota.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bogota_4.jpg'))]
-    bogota.save!
-bogota.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bogota_5.jpg'))]
+bogota.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bogota_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bogota_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bogota_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bogota_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bogota_5.jpg'))]
     bogota.save!
 
 
 cali = Stage.new(
       date: "Sun, 12 Mar 2017",
-      content: "Faker::Lorem.paragraph",
+      content: Faker::Lorem.paragraph,
       backpacker_name: "Quentin Gondat",
       backpacker_description: "Few weeks off, I love trekking and Hiking, I have been 7 times in South America and I don't get bored. Thanks to Bozo to share a part of the trip with me and thanks to Clement I met in Bogota, we had an amazing night there!",
       backpacker_origin: "Bordeau",
@@ -158,18 +148,12 @@ cali = Stage.new(
       teddy: teddy_bozo
     )
     cali.save!
-cali.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cali_1.jpg'))]
-    cali.save!
-cali.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cali_2.jpg'))]
-    cali.save!
-cali.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cali_3.jpg'))]
-    cali.save!
-cali.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cali_4.jpg'))]
+cali.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cali_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_cali_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_cali_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_cali_4.jpg'))]
     cali.save!
 
 cuzco = Stage.new(
       date: "Sun, 19 Mar 2017",
-      content: "Faker::Lorem.paragraph",
+      content: Faker::Lorem.paragraph,
       backpacker_name: "Quentin Gondat",
       backpacker_description: "Few weeks off, I love trekking and Hiking, I have been 7 times in South America and I don't get bored. Thanks to Bozo to share a part of the trip with me and thanks to Clement I met in Bogota, we had an amazing night there!",
       backpacker_origin: "Bordeau",
@@ -179,24 +163,16 @@ cuzco = Stage.new(
       teddy: teddy_bozo
     )
     cuzco.save!
-cuzco.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cuzco_1.jpg'))]
-    cuzco.save!
-cuzco.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cuzco_2.jpg'))]
-    cuzco.save!
-cuzco.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cuzco_3.jpg'))]
-    cuzco.save!
-cuzco.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cuzco_4.jpg'))]
-    cuzco.save!
-cuzco.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cuzco_5.jpg'))]
+cuzco.photos = [File.open(Rails.root.join('db/fixtures/images/stage_cuzco_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_cuzco_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_cuzco_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_cuzco_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_cuzco_5.jpg'))]
     cuzco.save!
 
 puts "Creating Choupi's Stages"
 
 bruxelles = Stage.new(
   date: "Wed, 1 Mar 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jimmy",
-  backpacker_description: "Faker::Lorem.paragraph",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bruxelles",
   crush: "Waffles & Speculos, so tasty!",
   backpacker_email: "jimmy@gmail.com",
@@ -205,22 +181,14 @@ bruxelles = Stage.new(
 )
 bruxelles.save!
     bruxelles.save!
-bruxelles.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_1.jpg'))]
-    bruxelles.save!
-bruxelles.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_2.jpg'))]
-    bruxelles.save!
-bruxelles.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_3.jpg'))]
-    bruxelles.save!
-bruxelles.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_4.jpg'))]
-    bruxelles.save!
-bruxelles.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_5.jpg'))]
+bruxelles.photos = [File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_bruxelles_5.jpg'))]
     bruxelles.save!
 
 berlin = Stage.new(
   date: "Wed, 8 Mar 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jimmy",
-  backpacker_description: "Faker::Lorem.paragraph",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Berlin, Germany",
   crush: "Waffles & Speculos, so tasty!",
   backpacker_email: "jimmy@gmail.com",
@@ -229,22 +197,14 @@ berlin = Stage.new(
 )
 berlin.save!
     berlin.save!
-berlin.photos = [File.open(Rails.root.join('db/fixtures/images/stage_berlin_1.jpg'))]
-    berlin.save!
-berlin.photos = [File.open(Rails.root.join('db/fixtures/images/stage_berlin_2.jpg'))]
-    berlin.save!
-berlin.photos = [File.open(Rails.root.join('db/fixtures/images/stage_berlin_3.jpg'))]
-    berlin.save!
-berlin.photos = [File.open(Rails.root.join('db/fixtures/images/stage_berlin_4.jpg'))]
-    berlin.save!
-berlin.photos = [File.open(Rails.root.join('db/fixtures/images/stage_berlin_5.jpg'))]
+berlin.photos = [File.open(Rails.root.join('db/fixtures/images/stage_berlin_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_berlin_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_berlin_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_berlin_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_berlin_5.jpg'))]
     berlin.save!
 
 warsaw = Stage.new(
   date: "Wed, 15 Mar 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Henning",
-  backpacker_description: "Faker::Lorem.paragraph",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bruxelles",
   crush: "Waffles & Speculos, so tasty!",
   backpacker_email: "henning@gmail.com",
@@ -253,22 +213,14 @@ warsaw = Stage.new(
 )
 warsaw.save!
     warsaw.save!
-warsaw.photos = [File.open(Rails.root.join('db/fixtures/images/stage_warsaw_1.jpg'))]
-    warsaw.save!
-warsaw.photos = [File.open(Rails.root.join('db/fixtures/images/stage_warsaw_2.jpg'))]
-    warsaw.save!
-warsaw.photos = [File.open(Rails.root.join('db/fixtures/images/stage_warsaw_3.jpg'))]
-    warsaw.save!
-warsaw.photos = [File.open(Rails.root.join('db/fixtures/images/stage_warsaw_4.jpg'))]
-    warsaw.save!
-warsaw.photos = [File.open(Rails.root.join('db/fixtures/images/stage_warsaw_5.jpg'))]
+warsaw.photos = [File.open(Rails.root.join('db/fixtures/images/stage_warsaw_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_warsaw_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_warsaw_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_warsaw_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_warsaw_5.jpg'))]
     warsaw.save!
 
 praga = Stage.new(
   date: "Wed, 22 Mar 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Henning",
-  backpacker_description: "Faker::Lorem.paragraph",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bruxelles",
   crush: "Waffles & Speculos, so tasty!",
   backpacker_email: "henning@gmail.com",
@@ -277,15 +229,7 @@ praga = Stage.new(
 )
 praga.save!
     praga.save!
-praga.photos = [File.open(Rails.root.join('db/fixtures/images/stage_praga_1.jpg'))]
-    praga.save!
-praga.photos = [File.open(Rails.root.join('db/fixtures/images/stage_praga_2.jpg'))]
-    praga.save!
-praga.photos = [File.open(Rails.root.join('db/fixtures/images/stage_praga_3.jpg'))]
-    praga.save!
-praga.photos = [File.open(Rails.root.join('db/fixtures/images/stage_praga_4.jpg'))]
-    praga.save!
-praga.photos = [File.open(Rails.root.join('db/fixtures/images/stage_praga_5.jpg'))]
+praga.photos = [File.open(Rails.root.join('db/fixtures/images/stage_praga_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_praga_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_praga_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_praga_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_praga_5.jpg'))]
     praga.save!
 
 
@@ -293,56 +237,40 @@ puts "Creating Bayon's Stages"
 
 siemreap = Stage.new(
   date: "Wed, 15 Feb 2017",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Thomas",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Paris",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "thomas@gmail.com",
   adress: "Siem Reap, Cambodia",
   teddy: teddy_bayon
 )
 siemreap.save!
     siemreap.save!
-siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_1.jpg'))]
-    siemreap.save!
-siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_2.jpg'))]
-    siemreap.save!
-siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_3.jpg'))]
-    siemreap.save!
-siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_4.jpg'))]
-    siemreap.save!
-siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_5.jpg'))]
+siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_5.jpg'))]
     siemreap.save!
 phnompenh = Stage.new(
   date: "Wed, 22 Feb 2017",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Thomas",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Paris",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "thomas@gmail.com",
   adress: "Phnom Penh, Cambodia",
   teddy: teddy_bayon
 )
 phnompenh.save!
     phnompenh.save!
-phnompenh.photos = [File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_1.jpg'))]
-    phnompenh.save!
-phnompenh.photos = [File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_2.jpg'))]
-    phnompenh.save!
-phnompenh.photos = [File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_3.jpg'))]
-    phnompenh.save!
-phnompenh.photos = [File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_4.jpg'))]
-    phnompenh.save!
-phnompenh.photos = [File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_5.jpg'))]
+phnompenh.photos = [File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_phnompenh_5.jpg'))]
     phnompenh.save!
 
 hcm = Stage.new(
   date: "Wed, 1 Mar 2017",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Boris",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Marseilles",
   crush: "Poste Eiffel",
   backpacker_email: "boris@gmail.com",
@@ -351,69 +279,45 @@ hcm = Stage.new(
 )
 hcm.save!
     hcm.save!
-hcm.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hcm_1.jpg'))]
-    hcm.save!
-hcm.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hcm_2.jpg'))]
-    hcm.save!
-hcm.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hcm_3.jpg'))]
-    hcm.save!
-hcm.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hcm_4.jpg'))]
-    hcm.save!
-hcm.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hcm_5.jpg'))]
+hcm.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hcm_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hcm_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hcm_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hcm_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hcm_5.jpg'))]
     hcm.save!
 
 hoian = Stage.new(
   date: "Wed, 8 Mar 2017",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Boris",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Marseilles",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "boris@gmail.com",
   adress: "Hoi An, Vietnam",
   teddy: teddy_bayon
 )
 hoian.save!
     hoian.save!
-hoian.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hoian_1.jpg'))]
-    hoian.save!
-hoian.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hoian_2.jpg'))]
-    hoian.save!
-hoian.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hoian_3.jpg'))]
-    hoian.save!
-hoian.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hoian_4.jpg'))]
-    hoian.save!
-hoian.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hoian_5.jpg'))]
+hoian.photos = [File.open(Rails.root.join('db/fixtures/images/stage_hoian_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hoian_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hoian_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hoian_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_hoian_5.jpg'))]
     hoian.save!
 
 catba = Stage.new(
   date: "Wed, 15 Mar 2017",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Martin",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "South Africa",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "martin@gmail.com",
   adress: "Catba, Vietnam",
   teddy: teddy_bayon
 )
 catba.save!
     catba.save!
-catba.photos = [File.open(Rails.root.join('db/fixtures/images/stage_catba_1.jpg'))]
-    catba.save!
-catba.photos = [File.open(Rails.root.join('db/fixtures/images/stage_catba_2.jpg'))]
-    catba.save!
-catba.photos = [File.open(Rails.root.join('db/fixtures/images/stage_catba_3.jpg'))]
-    catba.save!
-catba.photos = [File.open(Rails.root.join('db/fixtures/images/stage_catba_4.jpg'))]
-    catba.save!
-catba.photos = [File.open(Rails.root.join('db/fixtures/images/stage_catba_5.jpg'))]
+catba.photos = [File.open(Rails.root.join('db/fixtures/images/stage_catba_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_catba_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_catba_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_catba_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_catba_5.jpg'))]
     catba.save!
 sapa = Stage.new(
   date: "Wed, 22 Mar 2017",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Martin",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "South Africa",
   crush: "Hmongs are very friendly !",
   backpacker_email: "martin@gmail.com",
@@ -422,228 +326,148 @@ sapa = Stage.new(
 )
 sapa.save!
     sapa.save!
-sapa.photos = [File.open(Rails.root.join('db/fixtures/images/stage_sapa_1.jpg'))]
-    sapa.save!
-sapa.photos = [File.open(Rails.root.join('db/fixtures/images/stage_sapa_2.jpg'))]
-    sapa.save!
-sapa.photos = [File.open(Rails.root.join('db/fixtures/images/stage_sapa_3.jpg'))]
-    sapa.save!
-sapa.photos = [File.open(Rails.root.join('db/fixtures/images/stage_sapa_4.jpg'))]
-    sapa.save!
-sapa.photos = [File.open(Rails.root.join('db/fixtures/images/stage_sapa_5.jpg'))]
+sapa.photos = [File.open(Rails.root.join('db/fixtures/images/stage_sapa_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_sapa_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_sapa_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_sapa_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_sapa_5.jpg'))]
     sapa.save!
 
 puts "Creating Cousteau's Stages"
 
 marquises = Stage.new(
   date: "Mer, 6 Jan 2016",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jordan",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bretagne, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "jordan@gmail.com",
   adress: "Marquises, Polynésie Française",
   teddy: teddy_cousteau
 )
 marquises.save!
-marquises.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marquises_1.jpg'))]
-    marquises.save!
-marquises.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marquises_2.jpg'))]
-    marquises.save!
-marquises.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marquises_3.jpg'))]
-    marquises.save!
-marquises.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marquises_4.jpg'))]
-    marquises.save!
-marquises.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marquises_5.jpg'))]
+marquises.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marquises_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marquises_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marquises_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marquises_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marquises_5.jpg'))]
     marquises.save!
 tahiti = Stage.new(
   date: "Mer, 17 Jan 2016",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jordan",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bretagne, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "jordan@gmail.com",
   adress: "Papeete, Polynésie Française",
   teddy: teddy_cousteau
 )
 tahiti.save!
-tahiti.photos = [File.open(Rails.root.join('db/fixtures/images/stage_tahiti_1.jpg'))]
-    tahiti.save!
-tahiti.photos = [File.open(Rails.root.join('db/fixtures/images/stage_tahiti_2.jpg'))]
-    tahiti.save!
-tahiti.photos = [File.open(Rails.root.join('db/fixtures/images/stage_tahiti_3.jpg'))]
-    tahiti.save!
-tahiti.photos = [File.open(Rails.root.join('db/fixtures/images/stage_tahiti_4.jpg'))]
-    tahiti.save!
-tahiti.photos = [File.open(Rails.root.join('db/fixtures/images/stage_tahiti_5.jpg'))]
+tahiti.photos = [File.open(Rails.root.join('db/fixtures/images/stage_tahiti_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_tahiti_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_tahiti_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_tahiti_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_tahiti_5.jpg'))]
     tahiti.save!
 ushuaia = Stage.new(
   date: "Wed, 23 Mar 2016",
-  content: "XXXXXXX",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jordan",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bretagne, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "jordan@gmail.com",
   adress: "Ushuaia, Argentina",
   teddy: teddy_cousteau
 )
 ushuaia.save!
     ushuaia.save!
-ushuaia.photos = [File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_1.jpg'))]
-    ushuaia.save!
-ushuaia.photos = [File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_2.jpg'))]
-    ushuaia.save!
-ushuaia.photos = [File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_3.jpg'))]
-    ushuaia.save!
-ushuaia.photos = [File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_4.jpg'))]
-    ushuaia.save!
-ushuaia.photos = [File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_5.jpg'))]
+ushuaia.photos = [File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_ushuaia_5.jpg'))]
     ushuaia.save!
 alexander = Stage.new(
   date: "Wed, 8 Jun 2016",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jordan",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bretagne, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "jordan@gmail.com",
   adress: "alexander island",
   teddy: teddy_cousteau
 )
 alexander.save!
-alexander.photos = [File.open(Rails.root.join('db/fixtures/images/stage_alexander_1.jpg'))]
-    alexander.save!
-alexander.photos = [File.open(Rails.root.join('db/fixtures/images/stage_alexander_2.jpg'))]
-    alexander.save!
-alexander.photos = [File.open(Rails.root.join('db/fixtures/images/stage_alexander_3.jpg'))]
-    alexander.save!
-alexander.photos = [File.open(Rails.root.join('db/fixtures/images/stage_alexander_4.jpg'))]
-    alexander.save!
-alexander.photos = [File.open(Rails.root.join('db/fixtures/images/stage_alexander_5.jpg'))]
+alexander.photos = [File.open(Rails.root.join('db/fixtures/images/stage_alexander_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_alexander_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_alexander_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_alexander_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_alexander_5.jpg'))]
     alexander.save!
 pde = Stage.new(
   date: "Wed, 16 Nov 2016",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jordan",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bretagne, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "jordan@gmail.com",
   adress: "Punta Del Este, Urugay",
   teddy: teddy_cousteau
 )
 pde.save!
     pde.save!
-pde.photos = [File.open(Rails.root.join('db/fixtures/images/stage_pde_1.jpg'))]
-    pde.save!
-pde.photos = [File.open(Rails.root.join('db/fixtures/images/stage_pde_2.jpg'))]
-    pde.save!
-pde.photos = [File.open(Rails.root.join('db/fixtures/images/stage_pde_3.jpg'))]
-    pde.save!
-pde.photos = [File.open(Rails.root.join('db/fixtures/images/stage_pde_4.jpg'))]
-    pde.save!
-pde.photos = [File.open(Rails.root.join('db/fixtures/images/stage_pde_5.jpg'))]
+pde.photos = [File.open(Rails.root.join('db/fixtures/images/stage_pde_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_pde_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_pde_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_pde_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_pde_5.jpg'))]
     pde.save!
 antigua = Stage.new(
   date: "Wed, 15 Feb 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Jordan",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Bretagne, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "jordan@gmail.com",
   adress: "Antigua",
   teddy: teddy_cousteau
 )
 antigua.save!
     antigua.save!
-antigua.photos = [File.open(Rails.root.join('db/fixtures/images/stage_antigua_1.jpg'))]
-    antigua.save!
-antigua.photos = [File.open(Rails.root.join('db/fixtures/images/stage_antigua_2.jpg'))]
-    antigua.save!
-antigua.photos = [File.open(Rails.root.join('db/fixtures/images/stage_antigua_3.jpg'))]
-    antigua.save!
-antigua.photos = [File.open(Rails.root.join('db/fixtures/images/stage_antigua_4.jpg'))]
-    antigua.save!
-antigua.photos = [File.open(Rails.root.join('db/fixtures/images/stage_antigua_5.jpg'))]
+antigua.photos = [File.open(Rails.root.join('db/fixtures/images/stage_antigua_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_antigua_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_antigua_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_antigua_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_antigua_5.jpg'))]
     antigua.save!
 
 puts "Creating Potam's Stages"
 
 paris = Stage.new(
   date: "Wed, 15 Feb 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Helo",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Ville d'Avray, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "helo@gmail.com",
   adress: "Paris, France",
   teddy: teddy_potam
 )
 paris.save!
     paris.save!
-paris.photos = [File.open(Rails.root.join('db/fixtures/images/stage_paris_1.jpg'))]
-    paris.save!
-paris.photos = [File.open(Rails.root.join('db/fixtures/images/stage_paris_2.jpg'))]
-    paris.save!
-paris.photos = [File.open(Rails.root.join('db/fixtures/images/stage_paris_3.jpg'))]
-    paris.save!
-paris.photos = [File.open(Rails.root.join('db/fixtures/images/stage_paris_4.jpg'))]
-    paris.save!
-paris.photos = [File.open(Rails.root.join('db/fixtures/images/stage_paris_5.jpg'))]
+paris.photos = [File.open(Rails.root.join('db/fixtures/images/stage_paris_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_paris_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_paris_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_paris_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_paris_5.jpg'))]
     paris.save!
 
 
 barcelone = Stage.new(
   date: "Wed, 15 Feb 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Robert Wong",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Melun, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "robert@gmail.com",
   adress: "barcelona, Spain",
   teddy: teddy_potam
 )
 barcelone.save!
     barcelone.save!
-barcelone.photos = [File.open(Rails.root.join('db/fixtures/images/stage_barcelone_1.jpg'))]
-    barcelone.save!
-barcelone.photos = [File.open(Rails.root.join('db/fixtures/images/stage_barcelone_2.jpg'))]
-    barcelone.save!
-barcelone.photos = [File.open(Rails.root.join('db/fixtures/images/stage_barcelone_3.jpg'))]
-    barcelone.save!
-barcelone.photos = [File.open(Rails.root.join('db/fixtures/images/stage_barcelone_4.jpg'))]
-    barcelone.save!
-barcelone.photos = [File.open(Rails.root.join('db/fixtures/images/stage_barcelone_5.jpg'))]
+barcelone.photos = [File.open(Rails.root.join('db/fixtures/images/stage_barcelone_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_barcelone_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_barcelone_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_barcelone_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_barcelone_5.jpg'))]
     barcelone.save!
 
 marrakech = Stage.new(
   date: "Wed, 15 Feb 2017",
-  content: "Faker::Lorem.paragraph",
+  content: Faker::Lorem.paragraph,
   backpacker_name: "Robert Wong",
-  backpacker_description: "XXXXXXX",
+  backpacker_description: Faker::Lorem.paragraph,
   backpacker_origin: "Melun, France",
-  crush: "XXXXXXX",
+  crush: Faker::Lorem.paragraph,
   backpacker_email: "robert@gmail.com",
   adress: "marrakech, Marocco",
   teddy: teddy_potam
 )
 marrakech.save!
     marrakech.save!
-marrakech.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marrakech_1.jpg'))]
-    marrakech.save!
-marrakech.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marrakech_2.jpg'))]
-    marrakech.save!
-marrakech.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marrakech_3.jpg'))]
-    marrakech.save!
-marrakech.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marrakech_4.jpg'))]
-    marrakech.save!
-marrakech.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marrakech_5.jpg'))]
+marrakech.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marrakech_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_5.jpg'))]
     marrakech.save!
 
 puts "Finished!"
