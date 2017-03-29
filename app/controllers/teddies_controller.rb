@@ -90,6 +90,7 @@ class TeddiesController < ApplicationController
 
   def congrat
     @teddy = current_user.teddy
+    @teddy.user = current_user
     authorize @teddy
   end
 

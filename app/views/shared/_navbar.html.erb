@@ -15,8 +15,9 @@
     <% if user_signed_in? %>
 
       <!-- Profile picture and dropdown -->
+      <%= link_to "I'm a backpacker", backpacker_path, class: "navbar-teddies-item  navbar-teddies-link-big" %>
       <%= link_to t(".dashboard", default: "Dashboard"), dashboard_path, class: "navbar-teddies-item navbar-teddies-link" %>
-      <%= link_to t(".profile", default: "Profile"), new_user_session_path, class: "navbar-teddies-item navbar-teddies-link" %>
+      <%= link_to t(".about_us", default: "About Us"), about_path, class: "navbar-teddies-item navbar-teddies-link" %>
       <%= link_to t(".sign_out", default: "Log Out"), destroy_user_session_path, method: :delete, class: "navbar-teddies-item navbar-teddies-link" %>
       <% if current_user.photos? %>
         <%= cl_image_tag current_user.photos.first.path, transformation: [{width: 80, height: 80, gravity: 'face', radius: 'max', crop: :fill}], class: "avatar dropdown-toggle", id: "navbar-catbnb-menu", data: { toggle: "dropdown" }%>
@@ -42,24 +43,23 @@
   <!-- Dropdown list appearing on mobile only -->
   <div class="navbar-teddies-item hidden-md hidden-lg">
     <ul class="list-inline">
-      <% unless user_signed_in? %>
+
         <li> <%= link_to "I'm a Backpacker", "#", class: "navbar-teddies-item navbar-teddies-link-big navbar-teddies-link-big-mobile" %> </li>
-      <% end %>
+
       <li>
         <div class="dropdown">
           <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
           <ul class="dropdown-menu dropdown-menu-right navbar-teddies-dropdown-menu">
             <% if user_signed_in? %>
              <li>
-                  <%= link_to "#" do %>
-                    <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
+                  <%= link_to dashboard_path do %>
+                    <%= t(".dashboard", default: "Dashboard") %>
                   <% end %>
                 </li>
                 <li>
-                  <%= link_to "#" do %>
-                    <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
-                  <% end %>
+                  <%= link_to t(".about_us", default: "About Us"), about_path, class: "navbar-teddies-item navbar-teddies-link" %>
                 </li>
+
                 <li>
                   <%= link_to destroy_user_session_path, method: :delete do %>
                     <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
@@ -67,7 +67,7 @@
                 </li>
               <% else %>
                 <li>
-                  <%= link_to t(".about_us", default: "About Us"), "#", class: "navbar-teddies-item navbar-teddies-link" %>
+                  <%= link_to t(".about_us", default: "About Us"), about_path, class: "navbar-teddies-item navbar-teddies-link" %>
                 </li>
                 <li>
                   <%= link_to t(".sign_in", default: "Log In"), new_user_session_path, class: "navbar-teddies-item navbar-teddies-link" %>
