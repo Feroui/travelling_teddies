@@ -248,7 +248,7 @@ siemreap = Stage.new(
 )
 siemreap.save!
     siemreap.save!
-siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_1.jpg'))],File.open(Rails.root.join('db/fixtures/images/stage_siemreap_2.jpg'))],File.open(Rails.root.join('db/fixtures/images/stage_siemreap_3.jpg'))],File.open(Rails.root.join('db/fixtures/images/stage_siemreap_4.jpg'))],File.open(Rails.root.join('db/fixtures/images/stage_siemreap_5.jpg'))]
+siemreap.photos = [File.open(Rails.root.join('db/fixtures/images/stage_siemreap_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_siemreap_5.jpg'))]
     siemreap.save!
 phnompenh = Stage.new(
   date: "Wed, 22 Feb 2017",
