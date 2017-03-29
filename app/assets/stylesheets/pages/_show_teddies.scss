@@ -79,7 +79,7 @@
 }
 
 .stage-menu-center {
-  background-color: #ADAF83;
+  background-color: #F7AF1D;
   width: 2px;
   margin: 0px -38px;
 }
@@ -108,12 +108,12 @@
 .barre-horrizontale {
   height: 2px;
   width: 29%;
-  background-color: #ADAF83;
+  background-color: #F7AF1D;
 }
 .black-spot {
-  height: 15px;
+  height: 12.7px;
   width: 15px;
-  background-color: #ADAF83;
+  background-color: #F7AF1D;
   border: 3px solid white;
   border-radius: 50%;
   z-index: 1000;
@@ -126,10 +126,29 @@
   display: flex;
 }
 .card-teddies-stage-description-empty {
-  width: 32%;
+  width: 33%;
 }
 .card-teddies-stage-description-details {
   width: 100%;
   background-color: rgb(240,240,240);
   border-radius: 0px 0px 5px 5px;
+  padding: 5px 10px 10px 10px;
+  position: relative;
 }
+
+.card-teddies-date {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-weight: lighter;
+  width: 40%;
+}
+
+.card-teddies-address {
+  width: 60%;
+}
+
+.card-teddies-link {
+  margin: 0 auto;
+}
+

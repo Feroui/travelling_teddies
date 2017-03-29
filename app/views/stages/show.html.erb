@@ -1,16 +1,12 @@
-<div class="banner-stage" style="background-image: linear-gradient(180deg, rgba(247,175,29,0.33) 0%, rgba(50,50,50,0.25) 100%), url(http://lorempixel.com/1080/720/city);">
+<div class="banner-stage" style="background-image: linear-gradient(180deg, rgba(247,175,29,0.33) 0%, rgba(50,50,50,0.25) 100%), url(<%= cl_image_path @stage.photos[0].path %>);">
   <div class="container">
     <div class="banner-stage-content">
       <%= link_to teddy_path(@teddy) do %>
-      <% if @teddy.photos? %>
       <%= cl_image_tag @teddy.photos.first.path, class: "avatar-stage" %>
-      <% else %>
-      <%= image_tag "http://lorempixel.com/200/200/cats", class: "avatar-stage"%>
+      <div class="stage-teddy-card text-left">
       <% end %>
-      <div class="stage-teddy-card">
-      <% end %>
-        <h3><%=@teddy.name%></h3>
-        <p>32 followers - 6 stops</p>
+        <h2><%=@teddy.name%></h2>
+        <p><%= @stage.teddy.followers.size %> followers - <%= @stage.teddy.stages.size %> stops</p>
       </div>
     </div>
   </div>
@@ -21,13 +17,21 @@
     <div class="row">
       <div class="col-xs-12 col-md-3">
         <div class="destination">
-          <h1>Vientiane</h1>
-          <h3><%=@stage.adress%></h3>
+          <% if @stage.city.nil? %>
+            <h3><%=@stage.address%></h3>
+          <% else %>
+            <h1><%=@stage.city%></h1>
+            <h3><%=@stage.country%></h3>
+          <% end %>
         </div>
       </div>
       <div class="col-xs-12 col-md-9">
         <div class="wiki">
-          <p><%= truncate(@desc, :length => 500)%> <%=link_to "see more", "https://en.wikipedia.org/wiki/Vientiane"%></p>
+          <% if @stage.city.nil? %>
+          <p><%= truncate(@desc, :length => 500)%> <%=link_to "see more", "https://en.wikipedia.org/wiki/#{@stage.country}"%></p>
+          <% else %>
+          <p><%= truncate(@desc, :length => 500)%> <%=link_to "see more", "https://en.wikipedia.org/wiki/#{@stage.city}"%></p>
+          <% end %>
         </div>
       </div>
     </div>
@@ -60,38 +64,46 @@
       <div class="stage-gallery">
         <div class="row">
           <div class="col-xs-4">
-            <a href="http://lorempixel.com/1080/720/city/1" class="swipebox" title="First picture">
-              <img src="http://lorempixel.com/160/160/city/1" alt="image">
+            <a href="<%= cl_image_path @stage.photos[0].path %>" class="swipebox" title="First picture">
+              <%= cl_image_tag @stage.photos[0].path, width: 160, height: 160, crop: :fill %>
             </a>
           </div>
           <div class="col-xs-4">
             <div class="stage-loved">
               <h4><%= image_tag "like.png" %>What I loved</h4>
-              <p>I really loved the temple and the people here, they are nice and helpful! It's very hot and the city is very lively.</p>
+              <p><%= @stage.crush %></p>
             </div>
           </div>
-          <div class="col-xs-4">
-            <a href="http://lorempixel.com/1080/720/city/2" class="swipebox" title="Second picture">
-              <img src="http://lorempixel.com/160/160/city/2" alt="image">
-            </a>
-          </div>
+          <% unless @stage.photos[1].nil? %>
+            <div class="col-xs-4">
+              <a href="<%= cl_image_path @stage.photos[1].path %>" class="swipebox" title="Second picture">
+                <%= cl_image_tag @stage.photos[1].path, width: 160, height: 160, crop: :fill %>
+              </a>
+            </div>
+          <% end %>
         </div>
         <div class="row">
-          <div class="col-xs-4">
-            <a href="http://lorempixel.com/1080/720/city/3" class="swipebox" title="Third picture">
-              <img src="http://lorempixel.com/160/160/city/3" alt="image">
-            </a>
-          </div>
-          <div class="col-xs-4">
-            <a href="http://lorempixel.com/1080/720/city/4" class="swipebox" title="Fourth picture">
-              <img src="http://lorempixel.com/160/160/city/4" alt="image">
-            </a>
-          </div>
-          <div class="col-xs-4">
-            <a href="http://lorempixel.com/1080/720/city/5" class="swipebox" title="Fifth picture">
-              <img src="http://lorempixel.com/160/160/city/5" alt="image">
-            </a>
-          </div>
+          <% unless @stage.photos[2].nil? %>
+            <div class="col-xs-4">
+              <a href="<%= cl_image_path @stage.photos[2].path %>" class="swipebox" title="Third picture">
+                <%= cl_image_tag @stage.photos[2].path, width: 160, height: 160, crop: :fill %>
+              </a>
+            </div>
+          <% end %>
+          <% unless @stage.photos[3].nil? %>
+            <div class="col-xs-4">
+              <a href="<%= cl_image_path @stage.photos[3].path %>" class="swipebox" title="Fourth picture">
+                <%= cl_image_tag @stage.photos[3].path, width: 160, height: 160, crop: :fill %>
+              </a>
+            </div>
+          <% end %>
+          <% unless @stage.photos[4].nil? %>
+            <div class="col-xs-4">
+              <a href="<%= cl_image_path @stage.photos[4].path %>" class="swipebox" title="Fifth picture">
+                <%= cl_image_tag @stage.photos[4].path, width: 160, height: 160, crop: :fill %>
+              </a>
+            </div>
+          <% end %>
         </div>
         <div class="row">
           <div class="col-xs-12">
@@ -104,10 +116,10 @@
     <div class="col-xs-12 col-md-4">
       <div class="stage-backpacker-profile">
         <div class="stage-pic-name">
-          <%= image_tag src="http://lorempixel.com/160/160/people", class: "avatar"%>
+          <%= image_tag src="http://lorempixel.com/200/200/people/1", class: "avatar"%>
           <div class="stage-name-origin">
             <h4><%= @stage.backpacker_name %></h4>
-            <p>Paris</p>
+            <p><%= @stage.backpacker_origin%></p>
           </div>
         </div>
         <hr>

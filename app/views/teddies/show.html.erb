@@ -47,8 +47,8 @@
       <div class="stage-menu">
 
           <div class="stage-menu-left">
-              <% @stages.reverse.each do |stage| %>
-              <% if stage.id.even?  %>
+              <% @stages.reverse.each_with_index do |stage, i| %>
+              <% if i.even?  %>
                 <div class="card-teddies-show">
                   <div class="car-teddies-title">
                     <div class="teddies-stages-title-menu"><%= cl_image_tag stage.photos.first.path %></div>
@@ -57,8 +57,9 @@
                   </div>
                   <div class="card-teddies-stage-description">
                     <div class="card-teddies-stage-description-details">
-                      <p><strong> <%= stage.adress %> </strong></p>
-                      <p><strong> <%= stage.date %></strong>: <%= @teddy.name %> was in <%= stage.adress %></p><%= link_to "see more", teddy_stage_path(@teddy, stage) %>
+                      <p class="card-teddies-date"><%= stage.date.to_date.to_formatted_s(:long_ordinal) %></p>
+                      <p class="card-teddies-address text-left"><strong> <%= stage.adress %> </strong></p>
+                      <%= link_to "see more", teddy_stage_path(@teddy, stage), class: "card-teddies-link btn btn-primary" %>
                     </div>
                     <div class="card-teddies-stage-description-empty"></div>
                   </div>
@@ -73,8 +74,8 @@
 
           <div class="stage-menu-right">
               <div class="empty-div-meny"></div>
-              <% @stages.reverse.each do |stage| %>
-              <% unless stage.id.even? %>
+              <% @stages.reverse.each_with_index do |stage, i| %>
+              <% unless i.even? %>
                 <div class="card-teddies-show">
                   <div class="car-teddies-title">
                     <div class="black-spot"></div>
@@ -85,8 +86,15 @@
                   <div class="card-teddies-stage-description">
                     <div class="card-teddies-stage-description-empty"></div>
                     <div class="card-teddies-stage-description-details">
-                      <p><strong> <%= stage.date %></strong></p>
-                      <p><strong> <%= stage.adress %> </strong></p>
+                      <p class="card-teddies-date"><%= stage.date.to_date.to_formatted_s(:long_ordinal) %></p>
+                      <p class="card-teddies-address text-left">
+                        <% if stage.city.nil? %>
+                          <strong><%= stage.adress %></strong>
+                        <% else %>
+                          <strong><%= stage.city %>, <%= stage.country%></strong>
+                        <% end %>
+                      </p>
+                      <%= link_to "see more", teddy_stage_path(@teddy, stage), class: "card-teddies-link btn btn-primary" %>
                     </div>
                   </div>
                 </div>
@@ -107,16 +115,22 @@
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 3,
         center: {lat: <%= @last_stage.latitude %>, lng: <%= @last_stage.longitude %>},
-        mapTypeId: google.maps.MapTypeId.TERRAIN
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        disableDefaultUI: true,
+        scrollwheel: false,
       });
 
-      var image = '<%= image_path 'teddypin.png' %>'
+      var image_last = '<%= image_path 'teddypin.png' %>'
+      var image_pin = '<%= image_path 'smallpin.png' %>'
       <% @stages.each do |stage| %>
         var marker = new google.maps.Marker({
         position: <%= raw( { lat: stage.latitude, lng: stage.longitude }.to_json) %>,
         map: map,
-        title: 'Hello World!',
-        icon: image
+        <% if stage == @stages.last %>
+        icon: image_last,
+        <% else %>
+        icon: image_pin,
+        <% end %>
         });
       <% end %>
 
@@ -136,6 +150,5 @@
     $(document).ready(function() {
       initMap()
     });
-
   <% end %>
 <% end %>

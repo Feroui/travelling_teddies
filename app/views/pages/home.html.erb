@@ -127,7 +127,7 @@
         <h2><%= @teddy_1.name %></h2>
         <div class="home-card">
           <div class="home-card-image-div">
-            <%= image_tag "http://lorempixel.com/1080/720/city/1/", class: 'img-left' %>
+            <%= cl_image_tag @teddy_1.stages.last.photos.first.path, class: 'img-left' %>
           </div>
           <div class="home-desc">
             <i class="fa fa-quote-left" aria-hidden="true"></i>
@@ -151,7 +151,7 @@
             <a href="<%= teddy_path(@teddy_2) %>" class="btn btn-primary hvr-grow">Follow his adventure!</a>
           </div>
           <div class="home-card-image-div">
-            <%= image_tag "http://lorempixel.com/1080/720/city/2/", class: 'img-right' %>
+            <%= cl_image_tag @teddy_2.stages.last.photos.first.path, class: 'img-right' %>
           </div>
         </div>
       </div>
@@ -161,7 +161,7 @@
         <h2><%= @teddy_1.name %></h2>
         <div class="home-card">
           <div class="home-card-image-div">
-            <%= image_tag "http://lorempixel.com/1080/720/city/3/", class: 'img-left' %>
+            <%= cl_image_tag @teddy_3.stages.last.photos.first.path, class: 'img-left' %>
           </div>
           <div class="home-desc">
             <i class="fa fa-quote-left" aria-hidden="true"></i>
@@ -194,12 +194,12 @@
     </div>
     <div class="row">
       <div class="col-xs-4">
-        <h3>You send Teddy to us</h3>
-        <p>Send your very own teddy bear through the mail; we’ll train him for travelling and give him hiking equipment.</p>
+        <h3>You create Teddy's profile</h3>
+        <p>Add all the important information about teddy; we need it to find a matching backpacker. Then we'll tell you what you need to give Teddy for the big trip! </p>
       </div>
       <div class="col-xs-4">
         <h3>Teddy finds a travel buddy</h3>
-        <p>Teddy will meet a friendly adventuror that will take him somewhere around the world. They’ll begin their trip together and you will receive messages and updates from your furry friend.</p>
+        <p>You will mail Teddy to a nice adventuror that will take him somewhere around the world. They’ll begin their trip together and you will receive messages and updates from your furry friend.</p>
       </div>
       <div class="col-xs-4">
         <h3>Teddy tours the world and meets new friends</h3>
