@@ -8,14 +8,19 @@
 
 .wider-container {
   width: 100%;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 90px);
   overflow: scroll;
+}
+
+.wider-container::-webkit-scrollbar {
+    display: none;
 }
 
 .container-without-footer {
   position: relative;
   margin-top: 70px;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 90px);
   width: 100vw;
+  background-color: #a8b47e;
 }
 
