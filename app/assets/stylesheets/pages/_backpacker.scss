@@ -1,8 +1,53 @@
 #inputs {
   margin-left: 400px;
   margin-right: 400px;
-  margin-top: 50px;
+
+    p {
+      font-weight: lighter;
+      font-size: 25px;
+      margin-bottom: 25px;
+      color:#958C8C;
+    }
+}
+
+.auth p {
+  font-weight: lighter;
+  font-size: 25px;
+  margin-bottom: 25px;
+  color:#958C8C;
+}
+
+#backpacker-name {
+  color: #DC3737;
 }
 
 
+.yes {
+  font-weight: lighter;
+  font-size: 25px;
+  color:#958C8C;
+}
 
+.yes:hover {
+  color: #DC3737;
+  text-decoration: none;
+}
+
+.no {
+  font-weight: lighter;
+  font-size: 25px;
+  color:#958C8C;
+}
+.no:hover {
+  color: #DC3737;
+  text-decoration: none;
+}
+
+.IdCheck p a {
+  margin: 0px 20px;
+}
+
+.IdCheck p {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}

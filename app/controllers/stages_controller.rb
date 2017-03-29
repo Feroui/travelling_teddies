@@ -66,6 +66,6 @@ private
 
   def stage_params
     params.require(:stage).permit(:backpacker_name, :backpacker_description, :date,
-      :content, :adress, :backpacker_origin, :backpacker_email, :crush, photos: [])
+      :content, :adress, :backpacker_origin, :backpacker_photo, :backpacker_email, :crush, photos: [])
   end
 end

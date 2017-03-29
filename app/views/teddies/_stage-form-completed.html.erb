@@ -2,13 +2,13 @@
 
 <div id="inputs">
   <%= simple_form_for([teddy, stage], remote: true) do |f| %>
-    <div id= "first-part">
+    <div id= "first-part" class="hide">
       <p>First, tell us more about you</p>
-      <%= f.input :backpacker_name, placeholder: "Your name", label: false %>
-      <%= f.input :backpacker_origin, placeholder: "Where do you come from ?", label: false%>
-      <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)', label:false %>
+      <%= f.input :backpacker_name, input_html: { value: @teddy.stages.last.backpacker_name }, label: false%>
+      <%= f.input :backpacker_origin, input_html: { value: @teddy.stages.last.backpacker_origin }, placeholder: "Where do you come from ?", label: false%>
+      <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)', label:false, input_html: { value: @teddy.stages.last.backpacker_description } %>
       <div class="input-center">
-        <%= f.input :backpacker_photo, as: :attachinary, label: false %>
+        <%= f.input :backpacker_photo, as: :attachinary, label: false, input_html: { value: @teddy.stages.last.backpacker_photo } %>
       </div>
       <%= f.input :backpacker_email, placeholder: "Leave your email to communicate with Teddy's owner", label: 'Optionnal' %>
       <%#= f.input :photo %>
@@ -55,5 +55,4 @@
 
   <% end %>
 </div>
-
 
