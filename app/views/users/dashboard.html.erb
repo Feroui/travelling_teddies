@@ -20,15 +20,15 @@
 
     <% current_user.followers.each do |follower| %>
       <div class="col-xs-12 nopadding">
-        <%= link_to teddy_stage_path(follower.teddy, follower.teddy.stages.last), class: "link-to-stage-teddy-dashboard" do %>
+        <%= link_to teddy_path(follower.teddy), class: "link-to-stage-teddy-dashboard" do %>
         <div class="followed-teddies-card">
           <div class="col-xs-3">
             <div class="info-teddies-followed followed-teddies-photo">
-            <% if follower.teddy.photos.first %>
-              <%= image_path follower.teddy.photos.first.path %>
-              <% else %>
+            <% if follower.teddy.stages.last.photos.first %>
+              <%= cl_image_tag follower.teddy.stages.last.photos.first.path, class: "image-teddy-dashboard" %>
+            <% else %>
               <%= image_tag "profilepic.jpg", class: "image-teddy-dashboard" %>
-              <% end %>
+            <% end %>
 
             </div>
           </div>
@@ -36,14 +36,11 @@
             <div class="followed-teddies-all">
               <div class="col-xs-12 col-sm-9 nopadding">
                 <div class="followed-teddies-info">
-
                     <ul class= "list-inline">
                       <li> <h2><%= follower.teddy.stages.last.adress %></h2></li>
                       <li><p> - <%= follower.teddy.stages.last.created_at.strftime("%d %b. %Y") %></p></li>
                     </ul>
                     <p><strong><%= follower.teddy.name %></strong> travelled with <strong> <%= follower.teddy.stages.last.backpacker_name %></strong>!</p>
-
-
                 </div>
               </div>
               <div class="col-xs-12 col-sm-3">

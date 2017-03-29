@@ -1,5 +1,7 @@
 <div class="text-center">
   <h1>Congratulation !</h1>
-  <p>Your create your teddy <%= @teddy.name %></p>
-  <p>you will receive an email with the very <strong>secret key</strong> of <strong><%= @teddy.name %></strong>, keep it preciously and share it with the traveller that allow him to add new stages at your teddy.</p>
+  <p> <strong> <%= @teddy.name %></strong> is born! </p>
+  <%= cl_image_tag current_user.teddy.photos.first.path, transformation: [{width: 150, height: 150, radius: 'max', crop: :fill}]%>
+  <p>You will receive an email on <strong> <%= @teddy.user.email %></strong> with the very <strong>secret Key</strong> of <strong><%= @teddy.name %></strong>. </p>
+  <p> Keep it preciously and share it with the traveller that allow him to add new stages at your teddy.</p>
 </div>
