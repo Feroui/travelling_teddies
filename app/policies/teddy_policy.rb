@@ -11,6 +11,10 @@ class TeddyPolicy < ApplicationPolicy
   def create?
     true
   end
+  def congrat?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope

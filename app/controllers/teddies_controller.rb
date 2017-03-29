@@ -82,14 +82,17 @@ class TeddiesController < ApplicationController
     @teddy.user = current_user
     authorize @teddy
     @teddy.save
-    redirect_to dashboard_path
+    redirect_to congrat_path
   end
 
   def backpacker
-
   end
 
-  # jdklsmflkqdsf
+  def congrat
+    @teddy = current_user.teddy
+    authorize @teddy
+  end
+
 
   def validate_code
     @teddy = Teddy.find_by code: params[:code]
