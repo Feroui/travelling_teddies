@@ -116,7 +116,11 @@
     <div class="col-xs-12 col-md-4">
       <div class="stage-backpacker-profile">
         <div class="stage-pic-name">
-          <%= image_tag src="http://lorempixel.com/200/200/people/1", class: "avatar"%>
+          <% if @stage.backpacker_photo %>
+            <%= cl_image_tag @stage.backpacker_photo.path, width:160, height:160, class: "avatar"%>
+          <% else %>
+            <%= image_tag "http://lorempixel.com/100/100/people", class: "avatar" %>
+          <% end %>
           <div class="stage-name-origin">
             <h4><%= @stage.backpacker_name %></h4>
             <p><%= @stage.backpacker_origin%></p>
