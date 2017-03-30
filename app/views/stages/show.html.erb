@@ -41,14 +41,51 @@
 <div class="container weather">
   <div class="row">
     <div class="col-xs-10 col-xs-offset-1">
-      <div class="weather">
-        <%= image_tag 'storm.png' %>
-        <p>Stormy</p>
-        <%= image_tag 'degree.png'%>
-        <p>Hot - 35°C</p>
-        <%= image_tag 'night.png'%>
-        <p>Night - it's 4AM</p>
-      </div>
+      <% unless @temp.nil? || @weather.nil? %>
+        <div class="weather">
+          <% if @weather == "Thunderstorm" %>
+            <%= image_tag 'weather/storm.png' %>
+          <% elsif @weather.in?(["Rain", "Drizzle", "Extreme"]) %>
+            <%= image_tag 'weather/rain.png' %>
+          <% elsif @weather == "Snow" %>
+            <%= image_tag 'weather/snow.png' %>
+          <% elsif @weather == "Clouds" %>
+            <%= image_tag 'weather/clouds.png' %>
+          <% elsif @weather == "Clear" %>
+            <%= image_tag 'weather/sun.png' %>
+          <% elsif @weather == "Atmosphere" %>
+            <%= image_tag 'weather/fog.png' %>
+          <% else %>
+            <%= image_tag 'weather/wind.png' %>
+          <% end %>
+          <p><%= @weather %></p>
+          <% if @temp < 14 %>
+            <%= image_tag 'weather/cold.png'%>
+          <% elsif @temp < 21 %>
+            <%= image_tag 'weather/mild.png' %>
+          <% else %>
+            <%= image_tag 'weather/hot.png' %>
+          <% end %>
+          <p>
+            <% if @temp < 0 %>
+              Very cold
+            <% elsif @temp < 10 %>
+              Cold
+            <% elsif @temp < 15 %>
+              Chilly
+            <% elsif @temp < 20 %>
+              Mild
+            <% elsif @temp < 25 %>
+              Warm
+            <% elsif @temp < 32 %>
+              Hot
+            <% else %>
+              Very hot
+            <% end %>
+            (<%= @temp %>°C)
+          </p>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
