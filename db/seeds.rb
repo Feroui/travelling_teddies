@@ -533,7 +533,7 @@ iceland = Stage.new(
   backpacker_origin: "Melun, France",
   crush: "I was really impressed by the Geysers. Every 5 or 10 minutes the grounds is shaking, smoke comes from nowhere, it’s fantastic !!",
   backpacker_email: "robert@gmail.com",
-  adress: "Sveitarfélagið Skagafjörður",
+  adress: "Reykjavik, Iceland",
   teddy: teddy_ross
 )
 iceland.save!
