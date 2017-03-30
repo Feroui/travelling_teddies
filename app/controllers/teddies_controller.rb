@@ -70,6 +70,14 @@ class TeddiesController < ApplicationController
       marker.lat stage.latitude
       marker.lng stage.longitude
     end
+
+    @follow = false
+    @teddy.followers.each do |f|
+      if f.user == current_user
+        @follow = true
+        @follow_id = f.id
+      end
+    end
   end
 
   def new
