@@ -27,3 +27,7 @@ $border-radius-small: 2px;
 .btn-primary:active:focus, .btn-primary:active:hover {
     background-color: $brand-color;
 }
+
+.form-control {
+  color: black !important;
+}
