@@ -43,8 +43,7 @@
       <div class="attach-form">
         <p>...and some pictures !</p>
         <div class="input-center">
-        <%= f.input :photos, as: :attachinary, label:false %>
-        <%#= f.input :photo_cache, as: :hidden %>
+          <%= f.input :photos, as: :attachinary, label: "2 pictures minimum" %>
         </div>
         <%= hidden_field_tag :code, @teddy.code %>
       </div>
