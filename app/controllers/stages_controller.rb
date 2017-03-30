@@ -9,6 +9,8 @@ class StagesController < ApplicationController
 
   def show
     @teddy = Teddy.find(params[:teddy_id])
+
+    # WIKIPEDIA
     if @stage.city.nil?
       country = @stage.country.encode('iso-8859-1')
       urcountry = URI.escape country
@@ -22,6 +24,13 @@ class StagesController < ApplicationController
     wiki = JSON.parse(response)
     pageid = wiki["query"]["pageids"][0]
     @desc = wiki["query"]["pages"][pageid]["extract"]
+
+    # WEATHER
+    url = "api.openweathermap.org/data/2.5/weather?lat=#{@stage.latitude}&lon=#{@stage.longitude}&units=metric&APPID=b5c01f34a240956a248db8b6c65f723c"
+    response = RestClient.get url
+    weather_api = JSON.parse(response)
+    @weather = weather_api["weather"][0]["main"]
+    @temp = weather_api["main"]["temp"]
   end
 
   def new
