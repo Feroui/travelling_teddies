@@ -8,8 +8,8 @@ class Stage < ApplicationRecord
   validates :backpacker_origin, presence: true
   has_attachment :backpacker_photo, presence: true
 
-  has_attachments :photos, presence: true
-
+  has_attachments :photos
+  #validates :photos, presence: true
 
   geocoded_by :adress
   after_validation :geocode, if: :adress_changed?
