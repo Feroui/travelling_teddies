@@ -49,9 +49,26 @@ thomas = User.create!(
   )
 thomas.photos = [File.open(Rails.root.join('db/fixtures/images/user_thomas.jpg'))]
   thomas.save!
+christian = User.create!(
+  name: "christian",
+  email: "christian@gmail.com",
+  password: "123456"
+  )
+christian.photos = [File.open(Rails.root.join('db/fixtures/images/user_christian.jpg'))]
+  christian.save!
 
 
 puts "Creating Teddies..."
+teddy_ross = Teddy.create!(
+  name: "Ross",
+  description: "Our son is going to have a baby so we decide to send a teddy travelling around the word for him! He is going to have a best friend travelling and maybe one day, he's going to join him and travel has their grand-parents do",
+  user: christian,
+  gender: "male",
+  origin: "Berlin",
+  personality: "creative"
+  )
+teddy_ross.photos = [File.open(Rails.root.join('db/fixtures/images/teddy_ross.jpg'))]
+  teddy_ross.save!
 teddy_bozo = Teddy.create!(
   name: "Bozo",
   description: "Bozo is crative project from an great artist called Bob. Bozo has been sent travelling to communicate happiness and love. He's creating links between people all over the world. If one day you meet Bozo somewhere, it will be your lucky day",
@@ -469,6 +486,62 @@ marrakech.save!
     marrakech.save!
 marrakech.photos = [File.open(Rails.root.join('db/fixtures/images/stage_marrakech_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_marrakech_5.jpg'))]
     marrakech.save!
+
+puts "Creating Ross's Stages"
+
+dubai = Stage.new(
+  date: "Wed, 15 Feb 2017",
+  content: "We stayed in Dubai few days, it's an impressive city and we prefere much to be in the nature. Anyway, it was interesting to see that but we're really happy to fly to Mauritius tomorrow with Ross",
+  backpacker_name: "Christian",
+  backpacker_description: "We are retired with my wife and we travelled a lot. Our son is going to have a baby so we decide to send a teddy travelling around the word for him!",
+  backpacker_origin: "Berlin, France",
+  crush: "We did a tour in the desert on camels, that was really fun even though it was very hot there",
+  backpacker_email: "christian@gmail.com",
+  adress: "Dubai",
+  teddy: teddy_ross
+)
+dubai.save!
+    dubai.save!
+dubai.backpacker_photo = [File.open(Rails.root.join('db/fixtures/images/backpacker_christian.jpg'))]
+    dubai.save!
+dubai.photos = [File.open(Rails.root.join('db/fixtures/images/stage_dubai_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_dubai_2.jpg'))]
+    dubai.save!
+
+mauritius = Stage.new(
+  date: "Wed, 22 Feb 2017",
+  content: "It was a shock when we arrive in Mauritius from Dubai, the difference was hudge! The nature is amazing, we walked trough the forest and have had nice swim in the bay and saw amzing fishes. We meet Robert there, such a nice guy and what an adventurer!",
+  backpacker_name: "Christian",
+  backpacker_description: "We are retired with my wife and we travelled a lot. Our son is going to have a baby so we decide to send a teddy travelling around the word for him!",
+  backpacker_origin: "Berlin, France",
+  crush: "We stayed in a very nice bNb named 'Borilla', Lora, the owner is cooked fish on grill, that was absolutly delicious!",
+  backpacker_email: "christian@gmail.com",
+  adress: "Mauritius",
+  teddy: teddy_ross
+)
+mauritius.save!
+    mauritius.save!
+mauritius.backpacker_photo = [File.open(Rails.root.join('db/fixtures/images/backpacker_christian.jpg'))]
+    mauritius.save!
+mauritius.photos = [File.open(Rails.root.join('db/fixtures/images/stage_mauritius_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_mauritius_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_mauritius_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_mauritius_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_mauritius_5.jpg'))]
+    mauritius.save!
+
+iceland = Stage.new(
+  date: "Wed, 15 Mar 2017",
+  content: "Icy journey…. On our first full day in Iceland, we decided to venture further east, but not before having a delicious, fresh breakfast spread prepared for us by our friendly host. Local cheeses, vegetables, fresh-baked bread, smoked trout, and eggs gave us the energy to head out on the road bright and early. Our first destination was Skaftafell National Park with our first sighting of Vatnajökull glacier. We met up with our tour guide and got crampons and an ice ax. We were given some instruction on how to hike on the glacier and awkwardly stomped our way over to it. It was a gorgeous, sunny day, and the ice gleamed all around us. She took us around different crevices so that we could see blue ice and ice caves.  We spent around two hours on the ice and had an amazing time.  Hiking a glacier sounded awfully cold to us so we bundled up in multiply layers. By the end, we were melting under the sun with the ice. Since we have been searching for northern lights every night since we got here, we have not slept much.",
+  backpacker_name: "Robert Wong",
+  backpacker_description: "Hi everyone ! My name is Robert, I come from a little city in France and I love travelling ! What I love the most is to meet people, talk with them and share stories...Last year I climb Himalaya it was a big adventure. Since January I started a new challenge : to visit every islands on earth ! I will start with Corsica, Iceland and Papuasia. Follow me",
+  backpacker_origin: "Melun, France",
+  crush: "I was really impressed by the Geysers. Every 5 or 10 minutes the grounds is shaking, smoke comes from nowhere, it’s fantastic !!",
+  backpacker_email: "robert@gmail.com",
+  adress: "Sveitarfélagið Skagafjörður",
+  teddy: teddy_ross
+)
+iceland.save!
+    iceland.save!
+iceland.backpacker_photo = [File.open(Rails.root.join('db/fixtures/images/backpacker_robert.jpg'))]
+    iceland.save!
+iceland.photos = [File.open(Rails.root.join('db/fixtures/images/stage_iceland_1.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_iceland_2.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_iceland_3.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_iceland_4.jpg')),File.open(Rails.root.join('db/fixtures/images/stage_iceland_5.jpg'))]
+    iceland.save!
 
 puts "Finished!"
 
