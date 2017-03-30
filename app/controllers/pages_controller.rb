@@ -23,7 +23,13 @@ class PagesController < ApplicationController
       # marker.infowindow render_to_string(partial: "/pages/map_box", locals: { stage: stage })
     end
 
-    teddies = Teddy.all.sample(3)
+    a = []
+    Teddy.all.each do |t|
+      if t.stages.size > 0
+        a << t
+      end
+    end
+    teddies = a.sample(3)
     @teddy_1 = teddies[0]
     @teddy_2 = teddies[1]
     @teddy_3 = teddies[2]
