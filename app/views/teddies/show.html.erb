@@ -29,9 +29,13 @@
                 <p><%= @teddy.stages.last.adress %></p>
               </div>
             </div>
-            <%= link_to teddy_followers_path(@teddy), class: "follow-button", method: :post do %>
+            <% if @follow %>
+              <%= link_to "Unfollow", teddy_follower_path(@teddy, @follow_id), method: :delete, class: "btn btn-primary button-following" %>
+            <% else %>
+              <%= link_to teddy_followers_path(@teddy), class: "follow-button", method: :post do %>
               <%= image_tag "bear_paw.png" %>
               <p>Follow <%= @teddy.name %> !</p>
+              <% end %>
             <% end %>
         </div>
 
