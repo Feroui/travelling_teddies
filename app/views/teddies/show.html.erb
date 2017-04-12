@@ -16,7 +16,7 @@
                 <% if @teddy.user.photos? %>
                 <%= cl_image_tag @teddy.user.photos.first.path, class: "avatar-bordered", width: 40, height: 40, crop: :fill %>
                 <% elsif current_user.facebook_picture_url?%>
-                  <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+                  <% avatar_url = @teddy.user.facebook_picture_url || "http://placehold.it/30x30" %>
                   <%= cl_image_tag avatar_url, transformation: [{width: 80, height: 80, gravity: 'face', radius: 'max', crop: :fill}], class: "avatar" %>
                 <% else %>
                    <%= image_tag "user.svg"%>
