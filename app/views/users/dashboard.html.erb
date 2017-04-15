@@ -16,20 +16,19 @@
       <div class="col-xs-12">
         <div id="map" style="width: 100%; height: 400px;"></div>
       </div>
-    </div>
 
     <% current_user.followers.each do |follower| %>
+     <% if follower.teddy.stages.first %>
       <div class="col-xs-12 nopadding">
         <%= link_to teddy_path(follower.teddy), class: "link-to-stage-teddy-dashboard" do %>
         <div class="followed-teddies-card">
           <div class="col-xs-3">
             <div class="info-teddies-followed followed-teddies-photo">
-            <% if follower.teddy.stages.last.photos.first %>
-              <%= cl_image_tag follower.teddy.stages.last.photos.first.path, class: "image-teddy-dashboard" %>
-            <% else %>
-              <%= image_tag "profilepic.jpg", class: "image-teddy-dashboard" %>
-            <% end %>
-
+            <% if current_user.teddy.stages %>
+                <%= cl_image_tag follower.teddy.stages.last.photos.first.path, class: "image-teddy-dashboard" %>
+              <% else %>
+                <%= image_tag "profilepic.jpg", class: "image-teddy-dashboard" %>
+              <% end %>
             </div>
           </div>
           <div class="col-xs-9">
@@ -53,7 +52,43 @@
         </div>
           <% end %>
       </div>
+        <% else %>
+        <div class="col-xs-12 nopadding">
+        <%= link_to teddy_path(follower.teddy), class: "link-to-stage-teddy-dashboard" do %>
+        <div class="followed-teddies-card">
+          <div class="col-xs-3">
+            <div class="info-teddies-followed followed-teddies-photo">
+            <% if current_user.teddy.stages %>
+                <%= cl_image_tag follower.teddy.photos.first.path, class: "image-teddy-dashboard" %>
+              <% else %>
+                <%= image_tag "profilepic.jpg", class: "image-teddy-dashboard" %>
+              <% end %>
+            </div>
+          </div>
+          <div class="col-xs-9">
+            <div class="followed-teddies-all">
+              <div class="col-xs-12 col-sm-9 nopadding">
+                <div class="followed-teddies-info">
+                    <ul class= "list-inline">
+                      <li><p> - <%= follower.teddy.created_at.strftime("%d %b. %Y") %></p></li>
+                    </ul>
+                    <p><strong><%= follower.teddy.name %></strong> is still at home</p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-3">
+                <div class="followed-teddies-actions">
+                  <%= link_to "Unfollow", teddy_follower_path(follower.teddy, follower), method: :delete, class: "btn btn-primary button-following" %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <% end %>
+      </div>
+
     <% end %>
+    <% end %>
+    </div>
   </div>
   <div class="col-xs-12 col-sm-3">
     <div class="dasboard-my-teddy-card">
@@ -81,19 +116,21 @@
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 3,
-          center: {lat: <%= current_user.followers.last.teddy.stages.last.latitude %>, lng: <%= current_user.followers.last.teddy.stages.last.longitude %>},
+          zoom: 2,
+          center: {lat: <%= 0 %>, lng: <%= 0 %>},
           mapTypeId: google.maps.MapTypeId.TERRAIN
         });
 
         var image = '<%= image_path 'teddypin.png' %>'
         <% current_user.followers.each do |follower| %>
-          var marker = new google.maps.Marker({
-          position: <%= raw( { lat: follower.teddy.stages.last.latitude, lng: follower.teddy.stages.last.longitude }.to_json) %>,
-          map: map,
-          title: 'Hello World!',
-          icon: image
-          });
+          <% if follower.teddy.stages.first %>
+            var marker = new google.maps.Marker({
+            position: <%= raw( { lat: follower.teddy.stages.last.latitude, lng: follower.teddy.stages.last.longitude }.to_json) %>,
+            map: map,
+            title: 'Hello World!',
+            icon: image
+            });
+          <% end %>
         <% end %>
       }
 
