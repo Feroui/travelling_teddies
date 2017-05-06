@@ -58,10 +58,9 @@
     <div class="row"> <!-- TRIP TREE -->
       <div class="col-xs-12 col-sm-10 col-sm-offset-1">
         <div class="stage-menu">
-
             <div class="stage-menu-left">
                 <% @stages.reverse.each_with_index do |stage, i| %>
-                <% if i.even?  %>
+                <% if i.even? && stage.id != @teddy.stages.first.id %>
                   <div class="card-teddies-show">
                     <div class="car-teddies-title">
                       <div class="teddies-stages-title-menu"><%= cl_image_tag stage.photos.first.path %></div>
@@ -76,19 +75,15 @@
                       </div>
                       <div class="card-teddies-stage-description-empty"></div>
                     </div>
-
                   </div>
                   <% end %>
                 <% end %>
-
             </div>
-
           <div class="stage-menu-center"></div>
-
             <div class="stage-menu-right">
-                <div class="empty-div-meny"></div>
+              <div class="empty-div-meny"></div>
                 <% @stages.reverse.each_with_index do |stage, i| %>
-                <% unless i.even? %>
+                <% unless i.even? || stage.id == @teddy.stages.first.id %>
                   <div class="card-teddies-show">
                     <div class="car-teddies-title">
                       <div class="black-spot"></div>
@@ -114,19 +109,31 @@
                   <% end %>
                 <% end %>
             </div>
-
         </div>
       </div>
       <div class="empty-stage-menu"></div>
     </div>
   <% end %>
    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <div class="show-teddies-row-top center-items">
-      <div class="show-teddies-row-top-id">
-        <%= @teddy.description %>
-        </div>
+    <h1>Departure</h1>
+    <div class="show-teddies-frist-stage">
+      <div class="show-teddies-frist-stage-photo"><%= cl_image_tag @teddy.stages.first.photos.first.path %>
+      </div>
+      <div class="show-teddies-frist-stage-description">
+        <p> <%= @teddy.stages.first.date.to_date.to_formatted_s(:long_ordinal) %></p>
+        <p>
+          <% if @teddy.stages.first.city.nil? %>
+            <strong><%= @teddy.stages.first.adress %></strong>
+          <% else %>
+            <strong><%= @teddy.stages.first.city %>, <%= @teddy.stages.first.country%></strong>
+          <% end %>
+        </p>
+        <p> "<%= @teddy.description %>"</p>
+        <%= link_to "see more", teddy_stage_path(@teddy, @teddy.stages.first), class: "card-teddies-link btn btn-primary" %>
       </div>
     </div>
+  </div>
+  </div>
 </div>
 
 
