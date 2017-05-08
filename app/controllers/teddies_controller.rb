@@ -49,11 +49,11 @@ class TeddiesController < ApplicationController
                     :width   => 34,
                     :height  => 48
                    })
-        marker.infowindow "<img src='http://lorempixel.com/200/200/cats' class='avatar-large'/>
-              <br>
-              <p>#{stage.teddy.name} is in #{stage.adress}!</p>
-              <em><a href=\"#{teddy_path(stage.teddy)}\">See more</a></em>"
-        # marker.infowindow render_to_string(partial: "/stages/map_box", locals: { stage: stage })
+        marker.infowindow "<img src='http://res.cloudinary.com/cfernon/image/upload/c_fill,h_160,w_160/#{stage.teddy.photos.first.path}' class='avatar-large'/>
+            <br>
+            <p>#{stage.teddy.name} is in #{stage.adress}!</p>
+            <em><a href=\"#{teddy_path(stage.teddy)}\">See more</a></em>"
+      # marker.infowindow render_to_string(partial: "/pages/map_box", locals: { stage: stage })
       end
     end
   end
