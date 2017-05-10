@@ -1,0 +1,60 @@
+<h1>xxxxxxxxxxxxxxxxxxxWrite the first step of <%=@teddy.name%></h1>
+
+<div id="inputs">
+  <%= simple_form_for([teddy, stage], remote: true) do |f| %>
+    <div id= "first-part">
+      <p>First, tell us more about you</p>
+      <%= f.input :backpacker_name, placeholder: "Your name", label: false %>
+      <%= f.input :backpacker_origin, placeholder: "Where do you come from ?", label: false%>
+      <%= f.input :backpacker_description, placeholder: 'Who are you ? (in a few words)', label:false %>
+      <div class="input-center">
+        <%= f.input :backpacker_photo, as: :attachinary, label: false %>
+      </div>
+      <%= f.input :backpacker_email, placeholder: "Leave your email to communicate with Teddy's owner", label: 'Optionnal' %>
+      <%#= f.input :photo %>
+      <%#= f.input :photo_cache, as: :hidden %>
+      <div class="first-next-btn arrow">
+        <i class="fa fa-arrow-down" />
+      </div>
+    </div>
+
+    <div id= "second-part" class="hide">
+      <div class="first-back-btn arrow">
+        <i class="fa fa-arrow-up" />
+      </div>
+      <p>What's up with you and <%=teddy.name%> ?</p>
+      <%= f.input :adress, placeholder: 'Where are you ?', label:false %>
+      <div class= "datepicker">
+        <%= f.input :date, value: Time.now, label: 'Date'%>
+      </div>
+      <div class="second-next-btn arrow">
+        <i class="fa fa-arrow-down" />
+      </div>
+    </div>
+
+    <div id= 'third-part' class="hide">
+      <div class="second-back-btn arrow">
+        <i class="fa fa-arrow-up" />
+      </div>
+      <p>Share your story...</p>
+      <%#= f.input :title, placeholder: 'Give a title to your stage article', label:false %>
+      <%= f.input :content, placeholder: 'Describe your stay, what did you eat, what did you visit, who did you meet ? Share an anecdote, a funny story, your emotions...', label:false, :input_html => {:rows => 9} %>
+      <%= f.input :crush, placeholder: "Say what you loved the most", label:false %>
+      <div class="attach-form">
+        <p>...and some pictures !</p>
+        <div class="input-center">
+        <%= f.input :photos, as: :attachinary, label:false %>
+        <%#= f.input :photo_cache, as: :hidden %>
+        </div>
+        <%= hidden_field_tag :code, @teddy.code %>
+      </div>
+      <div class="btn-save">
+        <%= f.submit 'Save', :class => "btn btn-primary btn-save" %>
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+
+

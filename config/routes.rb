@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'congrat', to: 'teddies#congrat'
   get 'about', to: 'pages#about'
 
-
   resources :teddies do
     collection do
       post :validate_code
