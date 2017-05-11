@@ -151,3 +151,23 @@
 .card-teddies-link {
   margin: 0 auto;
 }
+
+.show-teddies-frist-stage {
+  display: flex
+}
+.show-teddies-frist-stage-photo {
+
+  img {
+    width: 400px;
+    border-radius: 5px 0px 0px 5px;
+  }
+}
+.show-teddies-frist-stage-description {
+  width: 100%;
+  background-color: rgb(240,240,240);
+  border-radius: 0px 5px 5px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 5px 20px 20px 5px;
+}
